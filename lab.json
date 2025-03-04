@@ -1,0 +1,639 @@
+
+{
+    "fk_info": [
+        {
+            "schema": "lab",
+            "table": "analisis",
+            "column": "id_muestra",
+            "foreign_key_name": "fk_analisis_mue_id",
+            "reference_schema": "lab",
+            "reference_table": "muestras",
+            "reference_column": "id",
+            "fk_def": "FOREIGN KEY (id_muestra) REFERENCES muestras(id) ON UPDATE CASCADE ON DELETE CASCADE"
+        },
+        {
+            "schema": "lab",
+            "table": "usuclimue",
+            "column": "id_cliente",
+            "foreign_key_name": "fk_usuclimue_cli_id",
+            "reference_schema": "lab",
+            "reference_table": "clientes",
+            "reference_column": "id",
+            "fk_def": "FOREIGN KEY (id_cliente) REFERENCES clientes(id) ON UPDATE CASCADE ON DELETE CASCADE"
+        },
+        {
+            "schema": "lab",
+            "table": "usuclimue",
+            "column": "id_muestra",
+            "foreign_key_name": "fk_usuclimue_mue_id",
+            "reference_schema": "lab",
+            "reference_table": "muestras",
+            "reference_column": "id",
+            "fk_def": "FOREIGN KEY (id_muestra) REFERENCES muestras(id) ON UPDATE CASCADE ON DELETE CASCADE"
+        },
+        {
+            "schema": "lab",
+            "table": "usuclimue",
+            "column": "id_usuario",
+            "foreign_key_name": "fk_usuclimue_usu_id",
+            "reference_schema": "lab",
+            "reference_table": "usuarios",
+            "reference_column": "id",
+            "fk_def": "FOREIGN KEY (id_usuario) REFERENCES usuarios(id) ON UPDATE CASCADE ON DELETE CASCADE"
+        }
+    ],
+    "pk_info": [
+        {
+            "schema": "lab",
+            "table": "analisis",
+            "column": "id_muestra",
+            "pk_def": "PRIMARY KEY (id_muestra)"
+        },
+        {
+            "schema": "lab",
+            "table": "clientes",
+            "column": "id",
+            "pk_def": "PRIMARY KEY (id)"
+        },
+        {
+            "schema": "lab",
+            "table": "muestras",
+            "column": "id",
+            "pk_def": "PRIMARY KEY (id)"
+        },
+        {
+            "schema": "lab",
+            "table": "usuarios",
+            "column": "id",
+            "pk_def": "PRIMARY KEY (id)"
+        },
+        {
+            "schema": "lab",
+            "table": "usuclimue",
+            "column": "id_usuario",
+            "pk_def": "PRIMARY KEY (id_usuario, id_cliente, id_muestra)"
+        },
+        {
+            "schema": "lab",
+            "table": "usuclimue",
+            "column": "id_cliente",
+            "pk_def": "PRIMARY KEY (id_usuario, id_cliente, id_muestra)"
+        },
+        {
+            "schema": "lab",
+            "table": "usuclimue",
+            "column": "id_muestra",
+            "pk_def": "PRIMARY KEY (id_usuario, id_cliente, id_muestra)"
+        }
+    ],
+    "columns": [
+        {
+            "schema": "lab",
+            "table": "analisis",
+            "name": "id_muestra",
+            "type": "char",
+            "character_maximum_length": "10",
+            "precision": null,
+            "ordinal_position": "1",
+            "nullable": false,
+            "default": "",
+            "collation": "utf8mb4_general_ci"
+        },
+        {
+            "schema": "lab",
+            "table": "analisis",
+            "name": "tipo_analisis",
+            "type": "enum",
+            "character_maximum_length": "5",
+            "precision": null,
+            "ordinal_position": "2",
+            "nullable": true,
+            "default": "NULL",
+            "collation": "utf8mb4_general_ci"
+        },
+        {
+            "schema": "lab",
+            "table": "analisis",
+            "name": "coliformes",
+            "type": "tinyint",
+            "character_maximum_length": "null",
+            "precision": null,
+            "ordinal_position": "3",
+            "nullable": true,
+            "default": "NULL",
+            "collation": ""
+        },
+        {
+            "schema": "lab",
+            "table": "analisis",
+            "name": "e_coli",
+            "type": "tinyint",
+            "character_maximum_length": "null",
+            "precision": null,
+            "ordinal_position": "4",
+            "nullable": true,
+            "default": "NULL",
+            "collation": ""
+        },
+        {
+            "schema": "lab",
+            "table": "analisis",
+            "name": "pH",
+            "type": "decimal",
+            "character_maximum_length": "null",
+            "precision": {
+                "precision": 2,
+                "scale": 1
+            },
+            "ordinal_position": "5",
+            "nullable": true,
+            "default": "NULL",
+            "collation": ""
+        },
+        {
+            "schema": "lab",
+            "table": "analisis",
+            "name": "turbidez",
+            "type": "int",
+            "character_maximum_length": "null",
+            "precision": null,
+            "ordinal_position": "6",
+            "nullable": true,
+            "default": "NULL",
+            "collation": ""
+        },
+        {
+            "schema": "lab",
+            "table": "analisis",
+            "name": "color",
+            "type": "tinyint",
+            "character_maximum_length": "null",
+            "precision": null,
+            "ordinal_position": "7",
+            "nullable": true,
+            "default": "NULL",
+            "collation": ""
+        },
+        {
+            "schema": "lab",
+            "table": "analisis",
+            "name": "conductividad",
+            "type": "float",
+            "character_maximum_length": "null",
+            "precision": null,
+            "ordinal_position": "8",
+            "nullable": true,
+            "default": "NULL",
+            "collation": ""
+        },
+        {
+            "schema": "lab",
+            "table": "analisis",
+            "name": "dureza",
+            "type": "smallint",
+            "character_maximum_length": "null",
+            "precision": null,
+            "ordinal_position": "9",
+            "nullable": true,
+            "default": "NULL",
+            "collation": ""
+        },
+        {
+            "schema": "lab",
+            "table": "analisis",
+            "name": "cloro",
+            "type": "decimal",
+            "character_maximum_length": "null",
+            "precision": {
+                "precision": 3,
+                "scale": 2
+            },
+            "ordinal_position": "10",
+            "nullable": true,
+            "default": "NULL",
+            "collation": ""
+        },
+        {
+            "schema": "lab",
+            "table": "analisis",
+            "name": "lista",
+            "type": "tinyint",
+            "character_maximum_length": "null",
+            "precision": null,
+            "ordinal_position": "11",
+            "nullable": true,
+            "default": "0",
+            "collation": ""
+        },
+        {
+            "schema": "lab",
+            "table": "clientes",
+            "name": "id",
+            "type": "char",
+            "character_maximum_length": "36",
+            "precision": null,
+            "ordinal_position": "1",
+            "nullable": false,
+            "default": "",
+            "collation": "utf8mb4_general_ci"
+        },
+        {
+            "schema": "lab",
+            "table": "clientes",
+            "name": "nombre",
+            "type": "varchar",
+            "character_maximum_length": "50",
+            "precision": null,
+            "ordinal_position": "2",
+            "nullable": false,
+            "default": "",
+            "collation": "utf8mb4_general_ci"
+        },
+        {
+            "schema": "lab",
+            "table": "clientes",
+            "name": "email",
+            "type": "varchar",
+            "character_maximum_length": "50",
+            "precision": null,
+            "ordinal_position": "3",
+            "nullable": false,
+            "default": "",
+            "collation": "utf8mb4_general_ci"
+        },
+        {
+            "schema": "lab",
+            "table": "clientes",
+            "name": "pass",
+            "type": "varchar",
+            "character_maximum_length": "50",
+            "precision": null,
+            "ordinal_position": "4",
+            "nullable": false,
+            "default": "",
+            "collation": "utf8mb4_general_ci"
+        },
+        {
+            "schema": "lab",
+            "table": "muestras",
+            "name": "id",
+            "type": "char",
+            "character_maximum_length": "10",
+            "precision": null,
+            "ordinal_position": "1",
+            "nullable": false,
+            "default": "",
+            "collation": "utf8mb4_general_ci"
+        },
+        {
+            "schema": "lab",
+            "table": "muestras",
+            "name": "fecha",
+            "type": "datetime",
+            "character_maximum_length": "null",
+            "precision": null,
+            "ordinal_position": "2",
+            "nullable": false,
+            "default": "",
+            "collation": ""
+        },
+        {
+            "schema": "lab",
+            "table": "muestras",
+            "name": "direccion",
+            "type": "varchar",
+            "character_maximum_length": "50",
+            "precision": null,
+            "ordinal_position": "3",
+            "nullable": false,
+            "default": "",
+            "collation": "utf8mb4_general_ci"
+        },
+        {
+            "schema": "lab",
+            "table": "muestras",
+            "name": "cloro",
+            "type": "decimal",
+            "character_maximum_length": "null",
+            "precision": {
+                "precision": 3,
+                "scale": 2
+            },
+            "ordinal_position": "4",
+            "nullable": false,
+            "default": "",
+            "collation": ""
+        },
+        {
+            "schema": "lab",
+            "table": "muestras",
+            "name": "tipo_analisis",
+            "type": "enum",
+            "character_maximum_length": "5",
+            "precision": null,
+            "ordinal_position": "5",
+            "nullable": false,
+            "default": "",
+            "collation": "utf8mb4_general_ci"
+        },
+        {
+            "schema": "lab",
+            "table": "muestras",
+            "name": "enviado",
+            "type": "tinyint",
+            "character_maximum_length": "null",
+            "precision": null,
+            "ordinal_position": "6",
+            "nullable": true,
+            "default": "0",
+            "collation": ""
+        },
+        {
+            "schema": "lab",
+            "table": "muestras",
+            "name": "anotaciones",
+            "type": "varchar",
+            "character_maximum_length": "250",
+            "precision": null,
+            "ordinal_position": "7",
+            "nullable": true,
+            "default": "NULL",
+            "collation": "utf8mb4_general_ci"
+        },
+        {
+            "schema": "lab",
+            "table": "usuarios",
+            "name": "id",
+            "type": "char",
+            "character_maximum_length": "36",
+            "precision": null,
+            "ordinal_position": "1",
+            "nullable": false,
+            "default": "",
+            "collation": "utf8mb4_general_ci"
+        },
+        {
+            "schema": "lab",
+            "table": "usuarios",
+            "name": "nombre",
+            "type": "varchar",
+            "character_maximum_length": "50",
+            "precision": null,
+            "ordinal_position": "2",
+            "nullable": false,
+            "default": "",
+            "collation": "utf8mb4_general_ci"
+        },
+        {
+            "schema": "lab",
+            "table": "usuarios",
+            "name": "email",
+            "type": "varchar",
+            "character_maximum_length": "50",
+            "precision": null,
+            "ordinal_position": "3",
+            "nullable": false,
+            "default": "",
+            "collation": "utf8mb4_general_ci"
+        },
+        {
+            "schema": "lab",
+            "table": "usuarios",
+            "name": "pass",
+            "type": "varchar",
+            "character_maximum_length": "50",
+            "precision": null,
+            "ordinal_position": "4",
+            "nullable": false,
+            "default": "",
+            "collation": "utf8mb4_general_ci"
+        },
+        {
+            "schema": "lab",
+            "table": "usuclimue",
+            "name": "id_usuario",
+            "type": "char",
+            "character_maximum_length": "36",
+            "precision": null,
+            "ordinal_position": "1",
+            "nullable": false,
+            "default": "",
+            "collation": "utf8mb4_general_ci"
+        },
+        {
+            "schema": "lab",
+            "table": "usuclimue",
+            "name": "id_cliente",
+            "type": "char",
+            "character_maximum_length": "36",
+            "precision": null,
+            "ordinal_position": "2",
+            "nullable": false,
+            "default": "",
+            "collation": "utf8mb4_general_ci"
+        },
+        {
+            "schema": "lab",
+            "table": "usuclimue",
+            "name": "id_muestra",
+            "type": "char",
+            "character_maximum_length": "10",
+            "precision": null,
+            "ordinal_position": "3",
+            "nullable": false,
+            "default": "",
+            "collation": "utf8mb4_general_ci"
+        },
+        {
+            "schema": "lab",
+            "table": "usuclimue",
+            "name": "fecha_creacion",
+            "type": "datetime",
+            "character_maximum_length": "null",
+            "precision": null,
+            "ordinal_position": "4",
+            "nullable": true,
+            "default": "current_timestamp()",
+            "collation": ""
+        }
+    ],
+    "indexes": [
+        {
+            "schema": "lab",
+            "table": "analisis",
+            "name": "PRIMARY",
+            "size": "-1",
+            "column": "id_muestra",
+            "index_type": "btree",
+            "cardinality": 0,
+            "direction": "asc",
+            "column_position": 1,
+            "unique": true
+        },
+        {
+            "schema": "lab",
+            "table": "clientes",
+            "name": "PRIMARY",
+            "size": "-1",
+            "column": "id",
+            "index_type": "btree",
+            "cardinality": 0,
+            "direction": "asc",
+            "column_position": 1,
+            "unique": true
+        },
+        {
+            "schema": "lab",
+            "table": "clientes",
+            "name": "email",
+            "size": "16384",
+            "column": "email",
+            "index_type": "btree",
+            "cardinality": 0,
+            "direction": "asc",
+            "column_position": 1,
+            "unique": true
+        },
+        {
+            "schema": "lab",
+            "table": "muestras",
+            "name": "PRIMARY",
+            "size": "-1",
+            "column": "id",
+            "index_type": "btree",
+            "cardinality": 0,
+            "direction": "asc",
+            "column_position": 1,
+            "unique": true
+        },
+        {
+            "schema": "lab",
+            "table": "usuarios",
+            "name": "PRIMARY",
+            "size": "-1",
+            "column": "id",
+            "index_type": "btree",
+            "cardinality": 0,
+            "direction": "asc",
+            "column_position": 1,
+            "unique": true
+        },
+        {
+            "schema": "lab",
+            "table": "usuarios",
+            "name": "email",
+            "size": "16384",
+            "column": "email",
+            "index_type": "btree",
+            "cardinality": 0,
+            "direction": "asc",
+            "column_position": 1,
+            "unique": true
+        },
+        {
+            "schema": "lab",
+            "table": "usuclimue",
+            "name": "PRIMARY",
+            "size": "-1",
+            "column": "id_usuario",
+            "index_type": "btree",
+            "cardinality": 0,
+            "direction": "asc",
+            "column_position": 1,
+            "unique": true
+        },
+        {
+            "schema": "lab",
+            "table": "usuclimue",
+            "name": "PRIMARY",
+            "size": "-1",
+            "column": "id_cliente",
+            "index_type": "btree",
+            "cardinality": 0,
+            "direction": "asc",
+            "column_position": 2,
+            "unique": true
+        },
+        {
+            "schema": "lab",
+            "table": "usuclimue",
+            "name": "PRIMARY",
+            "size": "-1",
+            "column": "id_muestra",
+            "index_type": "btree",
+            "cardinality": 0,
+            "direction": "asc",
+            "column_position": 3,
+            "unique": true
+        },
+        {
+            "schema": "lab",
+            "table": "usuclimue",
+            "name": "fk_usuclimue_cli_id",
+            "size": "16384",
+            "column": "id_cliente",
+            "index_type": "btree",
+            "cardinality": 0,
+            "direction": "asc",
+            "column_position": 1,
+            "unique": false
+        },
+        {
+            "schema": "lab",
+            "table": "usuclimue",
+            "name": "fk_usuclimue_mue_id",
+            "size": "16384",
+            "column": "id_muestra",
+            "index_type": "btree",
+            "cardinality": 0,
+            "direction": "asc",
+            "column_position": 1,
+            "unique": false
+        }
+    ],
+    "tables": [
+        {
+            "schema": "lab",
+            "table": "analisis",
+            "rows": 0,
+            "type": "BASE TABLE",
+            "engine": "InnoDB",
+            "collation": "utf8mb4_general_ci"
+        },
+        {
+            "schema": "lab",
+            "table": "clientes",
+            "rows": 0,
+            "type": "BASE TABLE",
+            "engine": "InnoDB",
+            "collation": "utf8mb4_general_ci"
+        },
+        {
+            "schema": "lab",
+            "table": "muestras",
+            "rows": 0,
+            "type": "BASE TABLE",
+            "engine": "InnoDB",
+            "collation": "utf8mb4_general_ci"
+        },
+        {
+            "schema": "lab",
+            "table": "usuarios",
+            "rows": 0,
+            "type": "BASE TABLE",
+            "engine": "InnoDB",
+            "collation": "utf8mb4_general_ci"
+        },
+        {
+            "schema": "lab",
+            "table": "usuclimue",
+            "rows": 0,
+            "type": "BASE TABLE",
+            "engine": "InnoDB",
+            "collation": "utf8mb4_general_ci"
+        }
+    ],
+    "views": [],
+    "database_name": "lab",
+    "version": "10.4.32-MariaDB"
+} 

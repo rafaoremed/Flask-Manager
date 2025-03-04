@@ -22,8 +22,8 @@ if($fecha == ""){
             }
         }
         $lastSample++;
-        // Se añaden 0 hasta completar 3 cifras
-        while(strlen($lastSample) < 3){
+        // Se añaden 0 hasta completar 5 cifras
+        while(strlen($lastSample) < 5){
             (string) $lastSample = "0" . $lastSample;
         }
     
