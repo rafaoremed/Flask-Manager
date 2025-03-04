@@ -22,7 +22,7 @@ drop table if exists analisis;
 
 -- Tabla de Usuarios con UUID
 create table usuarios(
-    id char(36) primary key,  -- Usamos UUID en formato CHAR(36)
+    id char(36) primary key,  -- UUID en formato CHAR(36)
     nombre varchar(50) not null,
     email varchar(50) not null unique,
     pass varchar(50) not null
@@ -30,14 +30,17 @@ create table usuarios(
 
 -- Tabla de Clientes con UUID
 create table clientes(
-    id char(36) primary key,  -- Usamos UUID en formato CHAR(36)
+    id_usuario char(36),
+    id char(36) primary key,  -- UUID en formato CHAR(36)
     nombre varchar(50) not null,
     email varchar(50) not null unique,
-    fecha_alta datetime not null
+    fecha_alta datetime not null,
+    constraint fk_clientes_usu_id foreign key (id_usuario) references usuarios(id) on update cascade on delete cascade;
 );
 
 -- Tabla de Muestras
 create table muestras(
+    id_cliente char(36),
     id char(10) primary key,  -- ID con formato 'yymm/nnnnn', siendo n el número de muestra
     fecha datetime not null,
     direccion varchar(50) not null,
@@ -45,9 +48,10 @@ create table muestras(
     tipo_analisis enum('TOTAL', 'FQ', 'MICRO') not null,
     enviado boolean default false,
     anotaciones text
+    constraint fk_muestras_cli_id foreign key (id_cliente) references clientes(id) on update cascade on delete cascade;
 );
 
--- Relación Usuarios-Clientes-Muestras con UUIDs
+/* -- Relación Usuarios-Clientes-Muestras con UUIDs
 create table usuclimue(
     id_usuario char(36),
     id_cliente char(36),
@@ -58,7 +62,7 @@ create table usuclimue(
     constraint fk_usuclimue_cli_id foreign key (id_cliente) references clientes(id) on update cascade on delete cascade,
     constraint fk_usuclimue_mue_id foreign key (id_muestra) references muestras(id) on update cascade on delete cascade
 );
-
+ */
 -- Tabla de Análisis (unificada) con UUIDs
 create table analisis(
     id_muestra char(10) primary key,  
