@@ -12,8 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('analisis', function (Blueprint $table) {
-            $table->foreign('id_muestra')->references('id')->on('muestras');
-            $table->primary('id_muestra');
+            $table->char('id', 10); 
+            $table->foreign('id')->references('id')->on('muestras')->onDelete('cascade');
+            $table->primary('id');
             $table->tinyInteger('coliformes')->unsigned()->nullable();
             $table->tinyInteger('e_coli')->unsigned()->nullable();
             $table->decimal('cloro', 3, 2)->unsigned()->nullable();
