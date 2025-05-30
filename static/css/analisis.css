@@ -1,0 +1,114 @@
+form{
+    margin-top: var(--spacing5);
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+.valor-excedido {
+    border: 2px solid red !important;
+    background-color: #ffe6e6;
+}
+
+.campo label {
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+}
+
+.campo input[type="number"],
+.campo input[type="text"] {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+.campo-check {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.campo-check.deshabilitado {
+    opacity: 0.6;
+    pointer-events: none; 
+    transition: opacity 0.2s ease;
+}
+
+.check-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-weight: bold;
+    gap: 0.5rem;
+    user-select: none;
+}
+
+/* Oculta el checkbox original */
+.check-label input[type="checkbox"] {
+    display: none;
+}
+
+/* Estilo visual del checkbox */
+.check-custom {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #6a0dad;
+    border-radius: 4px;
+    display: inline-block;
+    position: relative;
+}
+
+/* Cuando está marcado */
+.check-label input[type="checkbox"]:checked + .check-custom::after {
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: 1px;
+    width: 6px;
+    height: 12px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    background-color: transparent;
+}
+
+/* Checkbox activo visualmente */
+.check-label input[type="checkbox"]:checked + .check-custom {
+    background-color: #6a0dad;
+    border-color: #6a0dad;
+}
+
+.btn.btn-primary {
+    background-color: #6a0dad;
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn.btn-primary:hover {
+    background-color: #5a0ba3;
+}
+
+.spinner {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}

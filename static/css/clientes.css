@@ -1,0 +1,279 @@
+/* Base */
+body {
+    
+    background: #f8f8fb;
+    margin: 0;
+}
+
+/* Search bar */
+.search-bar{
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    align-items: center;
+    margin: 1rem 0;
+}
+
+.form-search{
+    flex-grow: 1;
+}
+
+.form-search input{
+    width: 100%;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.search-bar .btn-primary{
+    white-space: nowrap;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+}
+
+.filtros-fecha {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Estilo para los botones de filtro */
+.filtros-fecha button {
+    padding: 0.5rem 0.8rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #6a0dad;
+    color: white;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.filtros-fecha button:hover {
+    background-color: #5a0cb3;
+}
+
+/* Estilo para el input month */
+.filtros-fecha input[type="month"] {
+    padding: 0.45rem 0.6rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 0.9rem;
+}
+
+/* Tabla */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+}
+
+.table thead {
+    background-color: var(--color50);
+    color: white;
+}
+
+.table th, .table td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+
+.table td:nth-child(9n) {
+    padding-left: var(--spacing3);
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+    main{
+        margin-top: var(--spacing3);
+    }
+
+    .filtros-fecha {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+    }
+
+    .filtros-fecha button,
+    .filtros-fecha input[type="month"] {
+        width: 100%;
+    }
+
+    .table thead {
+        display: none;
+    }
+    .table, .table tbody, .table tr, .table td {
+        display: block;
+        width: 100%;
+    }
+    .table tr {
+        margin-bottom: 1rem;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    .table td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+    }
+
+    .table td:nth-child(8n),
+    .table td:nth-child(9n){
+        padding-left: 0;
+        text-align: center;
+        justify-content: center;
+        flex-wrap: nowrap;
+        min-width: fit-content;
+    }
+
+    .table .btn{
+        flex-grow: 1;
+    }
+
+    .table td::before {
+        content: attr(data-att);
+        text-transform: capitalize;
+        position: absolute;
+        left: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        font-weight: bold;
+        text-align: left;
+        color: #555;
+    }
+
+    .search-bar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .search-bar .btn-primary {
+        width: 100%;
+    }
+}
+
+
+/* Botones */
+main .btn {
+    padding: 0.4rem 0.8rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #6a0dad;
+    color: white;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+main .btn:hover {
+    background-color: #5a0cb3;
+}
+
+main .btn-danger {
+    background-color: #e53935;
+}
+
+main .btn-danger:hover {
+    background-color: #c62828;
+}
+
+/* Modal */
+#modal-clientes {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+}
+
+#modal-clientes:not(.hidden) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    position: relative;
+}
+
+#cerrar-modal {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #666;
+}
+
+#cerrar-modal:hover {
+    color: #000;
+}
+
+/* Inputs */
+input.form-control {
+    width: 100%;
+    padding: 0.6rem;
+    margin: 0.5rem 0 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Encabezados */
+h1, h2 {
+    color: #4b007d;
+}
+
+/* Prueba tarjetas */
+.card-cliente {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 1rem;
+    margin: 1rem 0;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+.card-cliente p {
+    margin: 0.4rem 0;
+}
+
+.acciones {
+    margin-top: 1rem;
+    display: flex;
+    gap: 0.5rem;
+}
+
+
+/* Estado muestras */
+
+/* Enviada: fondo verdoso claro */
+tr.estado-enviada {
+  background-color: #e6f9e6;
+}
+
+/* Pendiente: fondo anaranjado claro */
+tr.estado-pendiente {
+  background-color: #fff3e6;
+}
+
+tr.estado-incidencias{
+    background-color: #ffa7a6;
+}
+

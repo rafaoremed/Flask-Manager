@@ -1,0 +1,234 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Raleway:wght@700&display=swap');
+
+/* Variables */
+:root {
+  --spacing1: 4px;
+  --spacing2: 8px;
+  --spacing3: 16px;
+  --spacing4: 20px;
+  --spacing5: 40px;
+  --spacing6: 80px;
+  --spacing7: 160px;
+
+  --color10: hsl(270, 50%, 10%);    /* Fondo oscuro (modo dark) */
+  --color30: hsl(270, 50%, 30%);    /* Botones/áreas oscuras */
+  --color50: hsl(270, 50%, 50%);    /* Morado puro (acentos fuertes) */
+  --color70: hsl(270, 50%, 70%);    /* Acento claro */
+  --color90: hsl(270, 50%, 90%);    /* Fondo claro (modo claro) */
+  --color100: hsl(270, 50%, 98%);   /* Fondo casi blanco */
+  --accent: hsl(270, 90%, 60%);     /* Acento vibrante: botones, links */
+  --accent-hover: hsl(270, 90%, 50%);
+  --text-light: hsl(270, 30%, 90%);  /* Texto sobre fondo oscuro */
+  --text-dark: hsl(270, 20%, 15%); /* Texto sobre fondo claro */
+
+  --fb: 'Inter', sans-serif;
+  --fh: 'Raleway', sans-serif;
+
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  display: grid;
+  min-height: 100dvh;
+  grid-template-rows: auto 1fr auto;
+  overflow: auto;
+  font-family: var(--fb);
+  /* display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: var(--fb); */
+ 
+}
+
+t-header{
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Header */
+header {
+  /* background-color: var(--color50); */
+  background: linear-gradient(to right bottom,
+    var(--color70), 
+    var(--color50),
+    var(--color30));
+
+  box-shadow: 2px 4px 4px 2px var(--color10);
+}
+
+header > div {
+  width: 90%;
+  max-width: 1600px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  padding: var(--spacing4) 0;
+}
+
+.logo {
+  width: 150px;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing5);
+}
+
+nav > a {
+  color: var(--text-light);
+  text-decoration: none;
+  transition: all 0.25s ease-in-out;
+  font-family: var(--fh);
+}
+
+nav > a:hover {
+    color: var(--text-dark);
+}
+
+.link-animation {
+  display: inline-block;
+  position: relative;
+  color: var(--text-light);
+}
+
+.link-animation::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: var(--text-light);
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.link-animation:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.ham {
+  display: none;
+  width: 20px;
+}
+
+.auth-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-left: auto;
+}
+
+.btn {
+  padding: 0.4rem 0.8rem;
+  background-color: var(--accent);
+  color: var(--text-light);
+  border-radius: 0.4rem;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: hsl(270, 90%, 50%);
+}
+
+
+/* Main */
+main{
+  /* flex: 1; */
+  width: 90%;
+  max-width: 1600px;
+  margin: var(--spacing6) auto;
+}
+
+
+
+
+/* Footer */
+/* footer */
+footer {
+  background: var(--color10);
+  color: var(--text-light);
+  padding: var(--spacing5) 0 var(--spacing5) 0;
+}
+
+.footer {
+  width: 90%;
+  max-width: 1080px;
+  margin: 0 auto;
+  /* display: flex;
+  justify-content: space-between; */
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .footer {
+    flex-direction: column;
+    gap: var(--spacing4);
+  }
+}
+
+.footer-right,
+.footer-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.social-media-icons {
+  display: flex;
+  gap: var(--spacing4);
+}
+
+.social-media {
+  width: 32px;
+}
+
+
+/* Spinner loading */
+.loader {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 10px;
+    animation: rotate 1s linear infinite;
+}
+
+.loader::before {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    inset: 0px;
+    border-radius: 50%;
+    border: 3px solid #FFF;
+    animation: prixClipFix 2s linear infinite;
+}
+
+@keyframes rotate {
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes prixClipFix {
+    0%   { clip-path: polygon(50% 50%,0 0,0 0,0 0,0 0,0 0); }
+    25%  { clip-path: polygon(50% 50%,0 0,100% 0,100% 0,100% 0,100% 0); }
+    50%  { clip-path: polygon(50% 50%,0 0,100% 0,100% 100%,100% 100%,100% 100%); }
+    75%  { clip-path: polygon(50% 50%,0 0,100% 0,100% 100%,0 100%,0 100%); }
+    100% { clip-path: polygon(50% 50%,0 0,100% 0,100% 100%,0 100%,0 0); }
+}
