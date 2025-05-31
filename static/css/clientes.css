@@ -1,8 +1,11 @@
 /* Base */
 body {
-    
     background: #f8f8fb;
     margin: 0;
+}
+
+h1{
+    text-transform: uppercase;
 }
 
 /* Search bar */

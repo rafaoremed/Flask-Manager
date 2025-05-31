@@ -14,6 +14,7 @@ $logged = isset($_SESSION["idLab"]) ? "true" : "false";
 
     <link rel="stylesheet" type="text/css" href="../../static/css/estilos.css">
     <link rel="stylesheet" type="text/css" href="../../static/css/toast.css">
+    <link rel="stylesheet" type="text/css" href="../../static/css/index.css">
 
     <script type="text/javascript" src="../../static/js/jquery-3.7.1.js"></script>
     <script ttype="text/javascript" src="../../static/js/html-components.js"></script>
@@ -31,249 +32,49 @@ $logged = isset($_SESSION["idLab"]) ? "true" : "false";
 
     <main class="landing-main">
         <section class="hero">
-            <h1>Flask Manager</h1>
-            <p class="subtext">
-                Gestión inteligente para laboratorios de análisis de agua.
-                
-                Un mini LIMS sencillo pero potente.
-            </p>
-            <a href="./login/login.php" class="btn btn-primary">Comenzar</a>
-        </section>
-
-        <section class="features">
-            <h2>¿Qué puedes hacer con Flask Manager?</h2>
-            <div class="feature-list">
-                <div class="feature">
-                    <h3>Gestión de clientes</h3>
-                    <p>Administra fácilmente tus clientes y sus ubicaciones.</p>
-                </div>
-                <div class="feature">
-                    <h3>Seguimiento de muestras</h3>
-                    <p>Registra, edita y filtra muestras por cliente, fecha o dirección.</p>
-                </div>
-                <div class="feature">
-                    <h3>Registro de análisis</h3>
-                    <p>Asocia análisis a cada muestra y registra resultados detallados.</p>
-                </div>
-                <div class="feature">
-                    <h3>Informes automáticos</h3>
-                    <p>Generación y envío de informes en PDF con un clic.</p>
-                </div>
+            <div class="hero-wrapper">
+                <h1>Flask Manager</h1>
+                <p class="subtext">
+                    Gestión inteligente para laboratorios de análisis de agua.
+                    
+                    Un mini LIMS sencillo pero potente.
+                </p>
+                <p>
+                    <a href="./login/login.php" class="btn btn-primary" id="btn-hero">Comenzar</a>
+                </p>
             </div>
         </section>
 
         <section class="features">
-            <h2>¿Qué puedes hacer con Flask Manager?</h2>
-            <div class="feature-list">
-                <div class="feature">
-                    <h3>Gestión de clientes</h3>
-                    <p>Administra fácilmente tus clientes y sus ubicaciones.</p>
-                </div>
-                <div class="feature">
-                    <h3>Seguimiento de muestras</h3>
-                    <p>Registra, edita y filtra muestras por cliente, fecha o dirección.</p>
-                </div>
-                <div class="feature">
-                    <h3>Registro de análisis</h3>
-                    <p>Asocia análisis a cada muestra y registra resultados detallados.</p>
-                </div>
-                <div class="feature">
-                    <h3>Informes automáticos</h3>
-                    <p>Generación y envío de informes en PDF con un clic.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="features">
-            <h2>¿Qué puedes hacer con Flask Manager?</h2>
-            <div class="feature-list">
-                <div class="feature">
-                    <h3>Gestión de clientes</h3>
-                    <p>Administra fácilmente tus clientes y sus ubicaciones.</p>
-                </div>
-                <div class="feature">
-                    <h3>Seguimiento de muestras</h3>
-                    <p>Registra, edita y filtra muestras por cliente, fecha o dirección.</p>
-                </div>
-                <div class="feature">
-                    <h3>Registro de análisis</h3>
-                    <p>Asocia análisis a cada muestra y registra resultados detallados.</p>
-                </div>
-                <div class="feature">
-                    <h3>Informes automáticos</h3>
-                    <p>Generación y envío de informes en PDF con un clic.</p>
+            <div class="section-wrapper">
+                <h2>¿Qué puedes hacer con Flask Manager?</h2>
+                <div class="feature-list">
+                    <div class="feature">
+                        <h3>Gestión de clientes</h3>
+                        <p>Administra fácilmente tus clientes y sus ubicaciones.</p>
+                    </div>
+                    <div class="feature">
+                        <h3>Seguimiento de muestras</h3>
+                        <p>Registra, edita y filtra muestras por cliente, fecha o dirección.</p>
+                    </div>
+                    <div class="feature">
+                        <h3>Registro de análisis</h3>
+                        <p>Asocia análisis a cada muestra y registra resultados detallados.</p>
+                    </div>
+                    <div class="feature">
+                        <h3>Informes automáticos</h3>
+                        <p>Generación y envío de informes en PDF con un clic.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="features">
-            <h2>¿Qué puedes hacer con Flask Manager?</h2>
-            <div class="feature-list">
-                <div class="feature">
-                    <h3>Gestión de clientes</h3>
-                    <p>Administra fácilmente tus clientes y sus ubicaciones.</p>
-                </div>
-                <div class="feature">
-                    <h3>Seguimiento de muestras</h3>
-                    <p>Registra, edita y filtra muestras por cliente, fecha o dirección.</p>
-                </div>
-                <div class="feature">
-                    <h3>Registro de análisis</h3>
-                    <p>Asocia análisis a cada muestra y registra resultados detallados.</p>
-                </div>
-                <div class="feature">
-                    <h3>Informes automáticos</h3>
-                    <p>Generación y envío de informes en PDF con un clic.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="features">
-            <h2>¿Qué puedes hacer con Flask Manager?</h2>
-            <div class="feature-list">
-                <div class="feature">
-                    <h3>Gestión de clientes</h3>
-                    <p>Administra fácilmente tus clientes y sus ubicaciones.</p>
-                </div>
-                <div class="feature">
-                    <h3>Seguimiento de muestras</h3>
-                    <p>Registra, edita y filtra muestras por cliente, fecha o dirección.</p>
-                </div>
-                <div class="feature">
-                    <h3>Registro de análisis</h3>
-                    <p>Asocia análisis a cada muestra y registra resultados detallados.</p>
-                </div>
-                <div class="feature">
-                    <h3>Informes automáticos</h3>
-                    <p>Generación y envío de informes en PDF con un clic.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="features">
-            <h2>¿Qué puedes hacer con Flask Manager?</h2>
-            <div class="feature-list">
-                <div class="feature">
-                    <h3>Gestión de clientes</h3>
-                    <p>Administra fácilmente tus clientes y sus ubicaciones.</p>
-                </div>
-                <div class="feature">
-                    <h3>Seguimiento de muestras</h3>
-                    <p>Registra, edita y filtra muestras por cliente, fecha o dirección.</p>
-                </div>
-                <div class="feature">
-                    <h3>Registro de análisis</h3>
-                    <p>Asocia análisis a cada muestra y registra resultados detallados.</p>
-                </div>
-                <div class="feature">
-                    <h3>Informes automáticos</h3>
-                    <p>Generación y envío de informes en PDF con un clic.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="features">
-            <h2>¿Qué puedes hacer con Flask Manager?</h2>
-            <div class="feature-list">
-                <div class="feature">
-                    <h3>Gestión de clientes</h3>
-                    <p>Administra fácilmente tus clientes y sus ubicaciones.</p>
-                </div>
-                <div class="feature">
-                    <h3>Seguimiento de muestras</h3>
-                    <p>Registra, edita y filtra muestras por cliente, fecha o dirección.</p>
-                </div>
-                <div class="feature">
-                    <h3>Registro de análisis</h3>
-                    <p>Asocia análisis a cada muestra y registra resultados detallados.</p>
-                </div>
-                <div class="feature">
-                    <h3>Informes automáticos</h3>
-                    <p>Generación y envío de informes en PDF con un clic.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="features">
-            <h2>¿Qué puedes hacer con Flask Manager?</h2>
-            <div class="feature-list">
-                <div class="feature">
-                    <h3>Gestión de clientes</h3>
-                    <p>Administra fácilmente tus clientes y sus ubicaciones.</p>
-                </div>
-                <div class="feature">
-                    <h3>Seguimiento de muestras</h3>
-                    <p>Registra, edita y filtra muestras por cliente, fecha o dirección.</p>
-                </div>
-                <div class="feature">
-                    <h3>Registro de análisis</h3>
-                    <p>Asocia análisis a cada muestra y registra resultados detallados.</p>
-                </div>
-                <div class="feature">
-                    <h3>Informes automáticos</h3>
-                    <p>Generación y envío de informes en PDF con un clic.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="features">
-            <h2>¿Qué puedes hacer con Flask Manager?</h2>
-            <div class="feature-list">
-                <div class="feature">
-                    <h3>Gestión de clientes</h3>
-                    <p>Administra fácilmente tus clientes y sus ubicaciones.</p>
-                </div>
-                <div class="feature">
-                    <h3>Seguimiento de muestras</h3>
-                    <p>Registra, edita y filtra muestras por cliente, fecha o dirección.</p>
-                </div>
-                <div class="feature">
-                    <h3>Registro de análisis</h3>
-                    <p>Asocia análisis a cada muestra y registra resultados detallados.</p>
-                </div>
-                <div class="feature">
-                    <h3>Informes automáticos</h3>
-                    <p>Generación y envío de informes en PDF con un clic.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="features">
-            <h2>¿Qué puedes hacer con Flask Manager?</h2>
-            <div class="feature-list">
-                <div class="feature">
-                    <h3>Gestión de clientes</h3>
-                    <p>Administra fácilmente tus clientes y sus ubicaciones.</p>
-                </div>
-                <div class="feature">
-                    <h3>Seguimiento de muestras</h3>
-                    <p>Registra, edita y filtra muestras por cliente, fecha o dirección.</p>
-                </div>
-                <div class="feature">
-                    <h3>Registro de análisis</h3>
-                    <p>Asocia análisis a cada muestra y registra resultados detallados.</p>
-                </div>
-                <div class="feature">
-                    <h3>Informes automáticos</h3>
-                    <p>Generación y envío de informes en PDF con un clic.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="tech">
-            <h2>Tecnologías utilizadas</h2>
-            <ul class="tech-list">
-                <li>PHP</li>
-                <li>Flask (Python)</li>
-                <li>MySQL</li>
-                <li>JavaScript + jQuery</li>
-                <li>CSS personalizado</li>
-            </ul>
-        </section>
 
         <section class="contact">
-            <h2>Contacto</h2>
-            <p>¿Tienes dudas o sugerencias? Escríbenos a <a href="mailto:soporte@flaskmanager.com">soporte@flaskmanager.com</a></p>
+            <div class="section-wrapper">    
+                <h2>Contacto</h2>
+                <p>¿Tienes dudas o sugerencias? Escríbenos a <a href="mailto:soporte@flaskmanager.com">soporte@flaskmanager.com</a></p>
+            </div>
         </section>
     </main>
 

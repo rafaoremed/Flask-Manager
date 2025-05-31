@@ -8,6 +8,8 @@
 
 /* Variables */
 :root {
+  --fs-h-link: 1.2em;
+
   --spacing1: 4px;
   --spacing2: 8px;
   --spacing3: 16px;
@@ -99,7 +101,7 @@ header {
 
 .nav-links > a {
   text-transform: capitalize;
-  font-size: 1.1em;
+  font-size: var(--fs-h-link);
   color: var(--text-light);
   text-decoration: none;
   transition: all 0.2s ease-in-out;
@@ -133,13 +135,15 @@ header {
 .auth-buttons {
   display: flex;
   gap: 1rem;
-  font-size: 1.1em;
+  font-size: var(--fs-h-link);
 }
 
 .auth-buttons .btn {
   background-color: transparent;
   color: var(--text-light);
   border: 1px solid;
+  box-shadow: 2px 2px 1px var(--color70);
+  
 }
 
 .auth-buttons .btn:hover {
@@ -187,6 +191,10 @@ main {
 }
 
 /* Botones */
+main button{
+  box-shadow: 1px 1px 1px #666;
+}
+
 main .btn {
   border: none;
   background-color: #6a0dad;
