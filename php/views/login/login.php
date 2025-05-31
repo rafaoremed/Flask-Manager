@@ -27,7 +27,7 @@ $logged = isset($_SESSION["idLab"]) ? "true" : "false";
     <t-header page-links="../crud/" index-link="../" session-links="./" logged="<?php echo $logged ?>"></t-header>
 
     <main class="form-container">
-        <h1>Iniciar sesión</h1>
+        <h1>Inicio de sesión</h1>
         <form action="" id="form-credentials">
             <input type="hidden" name="csrf_token" id="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
         

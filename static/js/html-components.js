@@ -8,7 +8,7 @@ class THeader extends HTMLElement {
     // Solo mostramos el nav si hay sesión iniciada
     const navSection = isLogged
       ? `
-        <nav>
+        <nav class="nav-links">
           <a href="${pageLinks}vista-clientes.php" class="link-animation">Clientes</a>
           <a href="${pageLinks}vista-muestras.php" class="link-animation">Muestras</a>
           
@@ -36,12 +36,16 @@ class THeader extends HTMLElement {
     this.innerHTML = `
       <header>
         <div class="header-content">
-          <a href="${indexLink}index.php">
-            <img class="logo" src="${indexLink}../../static/img/logo-white-square/logo-transparent-svg.svg" />
-          </a>
-          ${navSection}
-          ${authButtons}
-        </div>  
+          <div class="header-left">
+            <a href="${indexLink}index.php">
+              <img class="logo" src="${indexLink}../../static/img/logo-v2/logo-transparent-2-png.png" />
+            </a>
+            ${navSection}
+          </div>
+          <div class="header-right">
+            ${authButtons}
+          </div> 
+        </div> 
       </header>
     `;
   }

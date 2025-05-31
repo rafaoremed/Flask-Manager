@@ -16,16 +16,16 @@
   --spacing6: 80px;
   --spacing7: 160px;
 
-  --color10: hsl(270, 50%, 10%);    /* Fondo oscuro (modo dark) */
-  --color30: hsl(270, 50%, 30%);    /* Botones/áreas oscuras */
-  --color50: hsl(270, 50%, 50%);    /* Morado puro (acentos fuertes) */
-  --color70: hsl(270, 50%, 70%);    /* Acento claro */
-  --color90: hsl(270, 50%, 90%);    /* Fondo claro (modo claro) */
-  --color100: hsl(270, 50%, 98%);   /* Fondo casi blanco */
-  --accent: hsl(270, 90%, 60%);     /* Acento vibrante: botones, links */
-  --accent-hover: hsl(270, 90%, 50%);
-  --text-light: hsl(270, 30%, 90%);  /* Texto sobre fondo oscuro */
-  --text-dark: hsl(270, 20%, 15%); /* Texto sobre fondo claro */
+  --color10: hsl(270, 50%, 10%);        /* Fondo oscuro (modo dark) */
+  --color30: hsl(270, 50%, 30%);        /* Botones/áreas oscuras */
+  --color50: hsl(270, 50%, 50%);        /* Morado puro (acentos fuertes) */
+  --color70: hsl(270, 50%, 70%);        /* Acento claro */
+  --color90: hsl(270, 50%, 90%);        /* Fondo claro (modo claro) */
+  --color100: hsl(270, 50%, 98%);       /* Fondo casi blanco */
+  --accent: hsl(270, 90%, 60%);         /* Acento vibrante: botones, links */
+  --accent-hover: hsl(270, 90%, 50%);   /* Acento on hover */
+  --text-light: hsl(270, 30%, 90%);     /* Texto sobre fondo oscuro */
+  --text-dark: hsl(270, 20%, 15%);      /* Texto sobre fondo claro */
 
   --fb: 'Inter', sans-serif;
   --fh: 'Raleway', sans-serif;
@@ -42,14 +42,9 @@ body {
   grid-template-rows: auto 1fr auto;
   overflow: auto;
   font-family: var(--fb);
-  /* display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  font-family: var(--fb); */
- 
 }
 
-t-header{
+t-header {
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -59,43 +54,56 @@ t-header{
 header {
   /* background-color: var(--color50); */
   background: linear-gradient(to right bottom,
-    var(--color70), 
-    var(--color50),
-    var(--color30));
+      var(--color70),
+      var(--color50),
+      var(--color30));
 
-  box-shadow: 2px 4px 4px 2px var(--color10);
+  /* box-shadow: 2px 4px 4px 2px var(--color10); */
 }
 
-header > div {
+.header-content {
   width: 90%;
   max-width: 1600px;
   margin: 0 auto;
+  padding: var(--spacing4) 0;
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: space-between;
   position: relative;
-  padding: var(--spacing4) 0;
+}
+
+.header-left{
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing3);
+}
+
+.header-right{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
 
 .logo {
-  width: 150px;
+  width: 100px;
+  object-fit: contain;
 }
 
-nav {
+.nav-links{
   display: flex;
-  align-items: center;
+  flex-direction: row;
   gap: var(--spacing5);
 }
 
-nav > a {
+.nav-links > a {
+  text-transform: capitalize;
+  font-size: 1.1em;
   color: var(--text-light);
   text-decoration: none;
-  transition: all 0.25s ease-in-out;
+  transition: all 0.2s ease-in-out;
   font-family: var(--fh);
-}
-
-nav > a:hover {
-    color: var(--text-dark);
 }
 
 .link-animation {
@@ -113,50 +121,90 @@ nav > a:hover {
   bottom: -2px;
   left: 0;
   background-color: var(--text-light);
-  transform-origin: bottom right;
-  transition: transform 0.25s ease-out;
+  transform-origin: center center;
+  transition: transform 0.2s ease-out;
 }
 
 .link-animation:hover::after {
   transform: scaleX(1);
-  transform-origin: bottom left;
-}
-
-.ham {
-  display: none;
-  width: 20px;
+  transform-origin: center center;
 }
 
 .auth-buttons {
   display: flex;
   gap: 1rem;
-  margin-left: auto;
+  font-size: 1.1em;
+}
+
+.auth-buttons .btn {
+  background-color: transparent;
+  color: var(--text-light);
+  border: 1px solid;
+}
+
+.auth-buttons .btn:hover {
+  background-color: var(--text-light);
+  border: none;
+  color: var(--color30);
+}
+
+@media (max-width: 750px) {
+  .header-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .left-section, .right-section {
+    align-items: center;
+  }
+
+  nav.nav-links {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing4);
+  }
+
+  .auth-buttons {
+    flex-direction: column;
+    margin-top: var(--spacing4);
+  }
 }
 
 .btn {
   padding: 0.4rem 0.8rem;
-  background-color: var(--accent);
-  color: var(--text-light);
-  border-radius: 0.4rem;
+  border-radius: 5px;
   text-decoration: none;
-  transition: background-color 0.2s ease;
+  transition: all 0.2s ease;
   cursor: pointer;
 }
 
-.btn:hover {
-  background-color: hsl(270, 90%, 50%);
-}
-
-
 /* Main */
-main{
-  /* flex: 1; */
+main {
   width: 90%;
   max-width: 1600px;
   margin: var(--spacing6) auto;
 }
 
+/* Botones */
+main .btn {
+  border: none;
+  background-color: #6a0dad;
+  color: white;
+  font-size: 0.9rem;
+}
 
+main .btn:hover {
+  background-color: #5a0cb3;
+}
+
+main .btn-danger {
+  background-color: #e53935;
+}
+
+main .btn-danger:hover {
+  background-color: #c62828;
+}
 
 
 /* Footer */
@@ -183,52 +231,52 @@ footer {
   }
 }
 
-.footer-right,
-.footer-left {
-  display: flex;
-  flex-direction: column;
-}
-
-.social-media-icons {
-  display: flex;
-  gap: var(--spacing4);
-}
-
-.social-media {
-  width: 32px;
-}
-
-
 /* Spinner loading */
 .loader {
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    position: relative;
-    display: inline-block;
-    vertical-align: middle;
-    margin-left: 10px;
-    animation: rotate 1s linear infinite;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 10px;
+  animation: rotate 1s linear infinite;
 }
 
 .loader::before {
-    content: "";
-    box-sizing: border-box;
-    position: absolute;
-    inset: 0px;
-    border-radius: 50%;
-    border: 3px solid #FFF;
-    animation: prixClipFix 2s linear infinite;
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  inset: 0px;
+  border-radius: 50%;
+  border: 3px solid #FFF;
+  animation: prixClipFix 2s linear infinite;
 }
 
 @keyframes rotate {
-    100% { transform: rotate(360deg); }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes prixClipFix {
-    0%   { clip-path: polygon(50% 50%,0 0,0 0,0 0,0 0,0 0); }
-    25%  { clip-path: polygon(50% 50%,0 0,100% 0,100% 0,100% 0,100% 0); }
-    50%  { clip-path: polygon(50% 50%,0 0,100% 0,100% 100%,100% 100%,100% 100%); }
-    75%  { clip-path: polygon(50% 50%,0 0,100% 0,100% 100%,0 100%,0 100%); }
-    100% { clip-path: polygon(50% 50%,0 0,100% 0,100% 100%,0 100%,0 0); }
+  0% {
+    clip-path: polygon(50% 50%, 0 0, 0 0, 0 0, 0 0, 0 0);
+  }
+
+  25% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 0, 100% 0, 100% 0);
+  }
+
+  50% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 100% 100%, 100% 100%);
+  }
+
+  75% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 100%);
+  }
+
+  100% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 0);
+  }
 }
