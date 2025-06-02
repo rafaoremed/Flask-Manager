@@ -1,7 +1,0 @@
-1. Landing page HTML y CSS
-2. Comprar HOST y Dominio
-3. Verificar que PHPMailer funciona bien 
-4. Crear 2FA y recuperación de contraseña
-5. Crear un informes.php donde extraer los datos de una muestra y usando tcpdf crear un pdf con el informe
-6. Mandar emails con el informe correcto asociado
-7. Ver como migrar todo el sistema al hosting y probar que todo funcione
