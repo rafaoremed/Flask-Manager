@@ -13,7 +13,7 @@ async function validar(){
     const labCredentials = {
         email: document.getElementById("email").value.trim(),
         csrfToken: document.getElementById("csrf_token").value.trim(),
-        action: "recuperar-pass"
+        action: 'request-token'
     }
 
     let errores = [];
@@ -32,7 +32,7 @@ async function validar(){
     }
 
     try{
-        const response = await fetch("../../db/laboratorios.php", {
+        const response = await fetch("../../db/pass.php", {
             method: "POST",
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded"

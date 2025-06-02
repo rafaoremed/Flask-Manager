@@ -9,7 +9,7 @@ $action = $_POST['action'] ?? '';
 $nombre = trim($_POST['nombre'] ?? '');
 $email = $_POST['email'] ?? null;
 
-if (in_array($action, ['create', 'read', 'update', 'recuperar-pass'])) {
+if (in_array($action, ['create', 'read', 'update'])) {
     $email = filter_var($email, FILTER_SANITIZE_EMAIL);
 
     if (!$email) {
@@ -159,25 +159,6 @@ switch ($action) {
         }
         break;
 
-    case 'recuperar-pass':
-        try{
-            $stmt = $pdo->prepare("SELECT * FROM laboratorios where email = ?");
-            $stmt->execute([$email]);
-            $result = $stmt->fetch(PDO::FETCH_ASSOC);
-
-            if (!$result) {
-                throw new Exception("Credenciales incorrectas." );
-            }
-
-            $_SESSION["emailLab"] = $result["email"];
-            echo 1;
-
-        }catch(PDOException $e){
-            http_response_code(500);
-            echo "No se ha encontrado ninguna cuenta asociada a ese correo. " . $e->getMessage();
-        }
-        break;
-
     case 'obtenerIdLab':
         echo $_SESSION["idLab"];
         break;
@@ -219,13 +200,6 @@ function logearse($pdo, $email){
     session_start();
     echo "2FA";
 
-
-
-    
-    /* $_SESSION["idLab"] = $result["id"];
-    $_SESSION["nombreLab"] = $result["nombre"];
-    $_SESSION["emailLab"] = $result["email"];
-    echo 1; */
 }
 
 ?>

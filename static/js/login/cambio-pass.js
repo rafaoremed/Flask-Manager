@@ -3,17 +3,29 @@ import { mostrarToast } from '../utils/toast.js';
 document.addEventListener("DOMContentLoaded", main);
 
 function main(){
+    const urlParams = new URLSearchParams(window.location.search);
+    const token = urlParams.get('token');
+
+    if (!token) {
+        // Opcional: redirigir o mostrar error si no hay token
+        mostrarToast("Token de recuperación no válido o ausente.", "error");
+        document.getElementById('form-credentials').classList.add("hidden");
+        document.getElementById('mensaje').classList.remove("hidden");
+    } 
+
     $("#form-credentials").on("submit", function(e){
         e.preventDefault();
-        validar();
+        validar(token);
     })
 }
 
-async function validar(){
+async function validar(token){
     const labCredentials = {
-        email: document.getElementById("email").value.trim(),
+        pass: document.getElementById("pass").value.trim(),
+        repass: document.getElementById("re-pass").value.trim(),
         csrfToken: document.getElementById("csrf_token").value.trim(),
-        action: "recuperar-pass"
+        token: token,
+        action: "update-pass"
     }
 
     let errores = [];
@@ -35,7 +47,7 @@ async function validar(){
     }
 
     try{
-        const response = await fetch("../../db/laboratorios.php", {
+        const response = await fetch("../../db/pass.php", {
             method: "POST",
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded"
@@ -43,6 +55,7 @@ async function validar(){
             body: new URLSearchParams({
                 action: labCredentials.action,
                 pass: labCredentials.pass,
+                token: labCredentials.token,
                 csrf_token: labCredentials.csrfToken,
                 noCache: Math.random()
             })
@@ -50,14 +63,14 @@ async function validar(){
         const text = await response.text();
 
         if (response.ok && text.trim() === "1") {
-            mostrarToast("Se le mandará un email a la dirección proporcionada.", "success");
+            mostrarToast("Se ha cambiado la contraseña con éxito.", "success");
             setTimeout(() => {
-                //window.location.href = '../crud/vista-clientes.php';
+                window.location.href = '../login/login.php';
                 document.getElementById("form-credentials").classList.add("hidden");
                 document.getElementById("mensaje").classList.remove("hidden");
             }, 500);
-        } else {
-            mostrarToast("No se ha encontrado ninguna cuenta asociada a ese correo.", "error");
+        } else if(response.ok && text.trim() === "2"){
+            mostrarToast("Ha ocurrido un error y no se ha podido restablecer su contraseña.", "error");
         }
     }catch(error){
         // console.error("Error en la petición:", error);

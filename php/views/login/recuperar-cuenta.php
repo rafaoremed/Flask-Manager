@@ -19,7 +19,7 @@ $logged = isset($_SESSION["idLab"]) ? "true" : "false";
 
     <script type="text/javascript" src="../../../static/js/utils/jquery-3.7.1.js"></script>
     <script ttype="text/javascript" src="../../../static/js/utils/html-components.js"></script>
-    <script type="module" src="../../../static/js/login/recuperar-pass.js"></script>
+    <script type="module" src="../../../static/js/login/recuperar-cuenta.js"></script>
 
     <link rel="shortcut icon" href="../../../static/img/logo-white-square/logo-transparent-svg.svg" type="image/x-icon">
 </head>

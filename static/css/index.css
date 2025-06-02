@@ -163,16 +163,6 @@ h2 {
         max-width: 750px;
         margin-top: 2rem;
     }
-
-    /* .text{
-        width: 100%;
-    }
-
-    .section-image{
-        width: 0;
-        display: none;
-    } */
-
 }
 
 @media (max-width:800px) {

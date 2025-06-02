@@ -20,6 +20,15 @@ CREATE TABLE laboratorios (
     expiracion_2fa DATETIME
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+CREATE TABLE recuperaciones (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  id_laboratorio CHAR(36) NOT NULL,
+  token VARCHAR(64) NOT NULL,
+  expiracion DATETIME NOT NULL,
+  usado BOOLEAN DEFAULT FALSE,
+  FOREIGN KEY (id_laboratorio) REFERENCES laboratorios(id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 -- Tabla de clientes
 CREATE TABLE clientes (
     id_laboratorio CHAR(36),

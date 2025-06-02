@@ -49,7 +49,7 @@ $logged = isset($_SESSION["idLab"]) ? "true" : "false";
                 </button>
             
         
-                <a href="./recuperar-pass.php" >¿Has olvidado tu contraseña?</a>
+                <a href="./recuperar-cuenta.php" >¿Has olvidado tu contraseña?</a>
             
         </form>
         <div id="toast-container"></div>
