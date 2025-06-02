@@ -71,34 +71,32 @@ $logged = isset($_SESSION["idLab"]) ? "true" : "false";
         </section>
 
         <section class="philosophy">
-            <div class="section-wrapper">
-                <h2>¿Por qué Flask Manager?</h2>
-                <ul class="philosophy-list">
-                <li>
-                    <svg class="icon-check" viewBox="0 0 16 16" fill="currentColor">
-                    <path d="M16 2L6 14 0 8l2-2 4 4L14 0z"/>
-                    </svg>
-                    <strong>Nació de una necesidad real:</strong>&nbsp;este proyecto surgió para resolver los dolores de cabeza diarios en un pequeño laboratorio de análisis de agua.
-                </li>
-                <li>
-                    <svg class="icon-check" viewBox="0 0 16 16" fill="currentColor">
-                    <path d="M16 2L6 14 0 8l2-2 4 4L14 0z"/>
-                    </svg>
-                    <strong>Simple e intuitivo:</strong>&nbsp;está pensado para que cualquier persona pueda usarlo sin formación previa.
-                </li>
-                <li>
-                    <svg class="icon-check" viewBox="0 0 16 16" fill="currentColor">
-                    <path d="M16 2L6 14 0 8l2-2 4 4L14 0z"/>
-                    </svg>
-                    <strong>Mejor que una hoja de Excel, más ligero que otros LIMS:</strong>&nbsp;olvídate de archivos sueltos, errores humanos y programas sobredimensionados.
-                </li>
-                <li>
-                    <svg class="icon-check" viewBox="0 0 16 16" fill="currentColor">
-                    <path d="M16 2L6 14 0 8l2-2 4 4L14 0z"/>
-                    </svg>
-                    <strong>Open source y sin ánimo de lucro:</strong>&nbsp;es libre, gratuito y está hecho con la idea de ayudar, no de venderte una suscripción.
-                </li>
-                </ul>
+            <div class="section-wrapper" >
+                <div class="text">
+                    <h2>¿Por qué Flask Manager?</h2>
+                    <div class="philosophy-list">
+                        <div class="list-item">
+                            <p><strong>Nació de una necesidad real:</strong></p>
+                            <p>Este proyecto surgió para resolver los dolores de cabeza diarios en un pequeño laboratorio de análisis de agua.</p>
+                            
+                        </div>
+                        <div class="list-item">
+                            <p><strong>Simple e intuitivo:</strong></p>
+                            <p>Está pensado para que cualquier persona pueda usarlo sin formación previa.</p>
+                        </div>
+                        <div class="list-item">
+                            <p><strong>Mejor que una hoja de Excel, más ligero que otros LIMS:</strong></p>
+                            <p>Olvídate de archivos sueltos, errores humanos y programas sobredimensionados.</p>                       
+                        </div>
+                        <div class="list-item">
+                            <p><strong>Open source y sin ánimo de lucro:</strong></p>
+                            <p>Es libre, gratuito y está hecho con la idea de ayudar, no de venderte una suscripción.</p>
+                        </div>
+                    </div>
+                </div>
+                <aside class="section-image">
+                    <img src="../../static/img/doctor-realizando-investigaciones-medicas-en-laboratorio.jpg" alt="Personal de laboratorio usando un espectrofotómetro" srcset="">
+                </aside>
             </div>
         </section>
 
@@ -107,7 +105,7 @@ $logged = isset($_SESSION["idLab"]) ? "true" : "false";
         <section class="contact">
             <div class="section-wrapper">    
                 <h2>Contacto</h2>
-                <p>¿Tienes dudas o sugerencias? Escríbenos a <a href="mailto:soporte@flaskmanager.com">soporte@flaskmanager.com</a></p>
+                <p>¿Tienes dudas o sugerencias? Escríbenos a <a href="mailto:info@flaskmanager.com">info@flaskmanager.com</a></p>
             </div>
         </section>
     </main>

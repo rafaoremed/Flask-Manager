@@ -3,13 +3,11 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\SMTP;
 
-$config = parse_ini_file(__DIR__ . '../../.env');
-
 require_once '../libs/phpmailer/src/Exception.php';
 require_once '../libs/phpmailer/src/PHPMailer.php';
 require_once '../libs/phpmailer/src/SMTP.php';
 function enviarCodigo2FA($destinatario, $codigo) {
-    global $config;
+    $config = parse_ini_file(__DIR__ . '/../../.env');
     try {
         $mail = new PHPMailer(true);
         // Configuración del servidor SMTP
