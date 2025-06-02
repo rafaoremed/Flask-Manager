@@ -3,20 +3,21 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\SMTP;
 
+$config = parse_ini_file(__DIR__ . '../../.env');
 
 require_once '../libs/phpmailer/src/Exception.php';
 require_once '../libs/phpmailer/src/PHPMailer.php';
 require_once '../libs/phpmailer/src/SMTP.php';
-
 function enviarCodigo2FA($destinatario, $codigo) {
+    global $config;
     try {
         $mail = new PHPMailer(true);
         // Configuración del servidor SMTP
         $mail->isSMTP();
-        $mail->Host = 'smtp.ionos.es';
+        $mail->Host = $config['SMTP_HOST'];
         $mail->SMTPAuth = true;
-        $mail->Username = 'info@flaskmanager.com';
-        $mail->Password = '4K$aVFjdAS!*H1';
+        $mail->Username = $config['SMTP_USERNAME'];
+        $mail->Password = $config['SMTP_PASSWORD'];
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port = 587;
         $mail->CharSet = 'UTF-8';
@@ -24,7 +25,7 @@ function enviarCodigo2FA($destinatario, $codigo) {
         $mail->isHTML(true);
 
         // Contenido del correo
-        $mail->setFrom('info@flaskmanager.com', 'Flask Manager');
+        $mail->setFrom($config['SMTP_FROM_EMAIL'], $config['SMTP_FROM_NAME']);
         $mail->addAddress($destinatario);
         $mail->isHTML(true);
         $mail->Subject = 'Tu código de verificación (2FA)';
