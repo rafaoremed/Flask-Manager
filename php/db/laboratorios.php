@@ -7,12 +7,16 @@ require_once 'db.php';
 
 $action = $_POST['action'] ?? '';
 $nombre = trim($_POST['nombre'] ?? '');
-$email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
+$email = $_POST['email'] ?? null;
 
-if (!$email) {
-    http_response_code(400);
-    echo "Correo no válido";
-    exit;
+if (in_array($action, ['create', 'read', 'update', 'recuperar-pass'])) {
+    $email = filter_var($email, FILTER_SANITIZE_EMAIL);
+
+    if (!$email) {
+        http_response_code(400);
+        echo "Correo no válido";
+        exit;
+    }
 }
 
 switch ($action) {
@@ -25,6 +29,15 @@ switch ($action) {
                 http_response_code(400);
                 echo "Formato de correo no válido.";
                 exit;
+            }
+
+            // Comprobar que no existe ese email
+            $stmt = $pdo->prepare("SELECT * FROM laboratorios WHERE email = ?");
+            $stmt->execute([$email]);
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            if ($result) {
+                throw new Exception("El email ya se encuentra en la base de datos." );
             }
 
             $rawPass = $_POST['pass'] ?? '';
@@ -57,6 +70,33 @@ switch ($action) {
             echo "Error al iniciar sesión: " . $e->getMessage();
         }catch (Exception $e) {
             echo $e->getMessage(); // Aquí capturas la excepción con "Credenciales incorrectas"
+        }
+        break;
+
+    case '2fa':
+        try{
+            $id = $_SESSION["pending_2fa"] ?? $_SESSION["idLab"];
+            $codigo = $_POST["codigo"] ?? '';
+
+            $stmt = $pdo->prepare("SELECT * FROM laboratorios WHERE id = ?");
+            $stmt->execute([$id]);
+            $user = $stmt->fetch();
+
+            if ($user && $user["codigo_2fa"] === $codigo && strtotime($user["expiracion_2fa"]) > time()) {
+                // Código correcto, iniciar sesión
+                $_SESSION["idLab"] = $user["id"];
+                $_SESSION["nombreLab"] = $user["nombre"];
+                $_SESSION["emailLab"] = $user["email"];
+                unset($_SESSION["pending_2fa"]);
+
+                // Borrar código
+                $stmt = $pdo->prepare("UPDATE laboratorios SET codigo_2fa = NULL, expiracion_2fa = NULL WHERE id = ?");
+                $stmt->execute([$id]);
+
+                echo 1;
+            }
+        }catch(Exception $e){
+            echo "El código no se corresponde con el enviado al email.";
         }
         break;
 
@@ -119,6 +159,25 @@ switch ($action) {
         }
         break;
 
+    case 'recuperar-pass':
+        try{
+            $stmt = $pdo->prepare("SELECT * FROM laboratorios where email = ?");
+            $stmt->execute([$email]);
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            if (!$result) {
+                throw new Exception("Credenciales incorrectas." );
+            }
+
+            $_SESSION["emailLab"] = $result["email"];
+            echo 1;
+
+        }catch(PDOException $e){
+            http_response_code(500);
+            echo "No se ha encontrado ninguna cuenta asociada a ese correo. " . $e->getMessage();
+        }
+        break;
+
     case 'obtenerIdLab':
         echo $_SESSION["idLab"];
         break;
@@ -130,6 +189,8 @@ switch ($action) {
 }
 
 function logearse($pdo, $email){
+    require_once '../utils/enviar-2fa.php';
+
     if (!isset($_POST['pass'])) {
         throw new Exception("Falta la contraseña.");
     }
@@ -142,17 +203,29 @@ function logearse($pdo, $email){
     if (!$result || !password_verify($pass, $result["pass"])) {
         throw new Exception("Credenciales incorrectas." );
     }
+
+    // Generar código 2FA
+    $codigo = str_pad(random_int(0, 999999), 6, '0', STR_PAD_LEFT);
+    $expiracion = date("Y-m-d H:i:s", strtotime("+10 minutes"));
+    $stmt = $pdo->prepare("UPDATE laboratorios SET codigo_2fa = ?, expiracion_2fa = ? WHERE id = ?");
+    $stmt->execute([$codigo, $expiracion, $result["id"]]);
+
+    // Enviar el código por correo
+    enviarCodigo2FA($email, $codigo);
+
+    // ⚠️ No iniciar sesión todavía
+    $_SESSION["pending_2fa"] = $result["id"];
+    session_write_close();
+    session_start();
+    echo "2FA";
+
+
+
     
-    // TODO Verificación 2FA
-
-
-
-
-    // session_start();
-    $_SESSION["idLab"] = $result["id"];
+    /* $_SESSION["idLab"] = $result["id"];
     $_SESSION["nombreLab"] = $result["nombre"];
     $_SESSION["emailLab"] = $result["email"];
-    echo 1;
+    echo 1; */
 }
 
 ?>

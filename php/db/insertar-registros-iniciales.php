@@ -6,7 +6,7 @@ try {
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     // 🔐 Encriptar contraseña del laboratorio
-    $password = password_hash('admin123', PASSWORD_DEFAULT);
+    $password = password_hash('FManager@123', PASSWORD_DEFAULT);
 
     // 📌 Insertar laboratorio
     $stmt = $conn->prepare("INSERT INTO laboratorios (id, nombre, email, pass) VALUES (UUID(), :nombre, :email, :pass)");
@@ -25,7 +25,15 @@ try {
     $stmt = $conn->prepare("INSERT INTO clientes (id, id_laboratorio, nombre, email) VALUES (UUID(), :id_laboratorio, :nombre, :email)");
     $clientes = [
         ['Ana Torres', 'ana.torres@email.com'],
-        ['Carlos Méndez', 'carlos.mendez@email.com']
+        ['Carlos Méndez', 'carlos.mendez@email.com'],
+        ['Jesus Encinas', 'jencinas35@email.com'], 
+        ['Marta Blanco', 'mblanco55@email.com'],
+        ['Pilar García', 'pilarghtr86@email.com'],
+        ['Ayto. San García', 'aytosg@administracion.com'],
+        ['Ayto. Villablanca', 'aytovb@administracion.com'],
+        ['Ayto. Carbonero', 'aytocrbnr@administracion.com'],
+        ['Ayto. Valsain', 'aytolgvsn@administracion.com'],
+        ['Ayto. Real Sitio de San Ildefonso', 'aytorslg@administracion.com']
     ];
 
     foreach ($clientes as $cliente) {
@@ -51,10 +59,10 @@ try {
     ");
 
     $muestras = [
-        [$cli1_id, '2505/00001', '2025-05-25', 'Av. Siempre Viva 123', 'TOTAL'],
-        [$cli1_id, '2505/00002', '2025-05-25', 'Calle Luna 45', 'FQ'],
-        [$cli2_id, '2505/00003', '2025-05-25', 'Calle Sol 89', 'MICRO'],
-        [$cli2_id, '2505/00004', '2025-05-25', 'Calle Estrella 12', 'TOTAL']
+        [$cli1_id, '2506/00001', '2025-06-02', 'Av. Siempre Viva 123', 'TOTAL'],
+        [$cli1_id, '2506/00002', '2025-06-02', 'Calle Luna 45', 'FQ'],
+        [$cli2_id, '2506/00003', '2025-06-02', 'Calle Sol 89', 'MICRO'],
+        [$cli2_id, '2506/00004', '2025-06-02', 'Calle Estrella 12', 'TOTAL']
     ];
 
     $id_map = [];
@@ -79,10 +87,10 @@ try {
     ");
 
     $analisis = [
-        ['2505/00001', 5, 0, 7.1, 1, 2, 120.5, 80, 0.25, true],
-        ['2505/00002', 12, 1, 6.8, 2, 3, 150.0, 90, 0.30, true],
-        ['2505/00003', 25, 5, 6.5, 3, 5, 98.2, 70, 0.15, true],
-        ['2505/00004', 8, 0, 7.4, 1, 2, 110.0, 85, 0.20, true]
+        ['2506/00001', 5, 0, 7.1, 1, 2, 120.5, 80, 0.25, true],
+        ['2506/00002', null, null, 6.8, 2, 3, 150.0, 90, 0.30, true],
+        ['2506/00003', 25, 5, 6.5, null, null, null, null, 0.10, true],
+        ['2506/00004', null, null, 7.4, 1, 2, 110.0, 85, 0.20, false]
     ];
 
     foreach ($analisis as $a) {

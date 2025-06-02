@@ -89,6 +89,23 @@ h1{
     padding-left: var(--spacing3);
 }
 
+.enviar-muestra{
+    background-color: #3269ff !important;
+}
+
+.enviar-muestra:hover{
+    background-color: #154cc4 !important;
+}
+
+.enviar-muestra.disabled{
+    cursor:default;
+    background-color: #666 !important;
+}
+
+.enviar-muestra.disabled:hover{
+    background-color: #555 !important;
+}
+
 /* Responsive */
 @media (max-width: 1000px) {
     main{

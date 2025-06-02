@@ -16,9 +16,9 @@ $logged = isset($_SESSION["idLab"]) ? "true" : "false";
     <link rel="stylesheet" type="text/css" href="../../static/css/toast.css">
     <link rel="stylesheet" type="text/css" href="../../static/css/index.css">
 
-    <script type="text/javascript" src="../../static/js/jquery-3.7.1.js"></script>
-    <script ttype="text/javascript" src="../../static/js/html-components.js"></script>
-    <script type="module" src="../../static/js/login.js"></script>
+    <script type="text/javascript" src="../../static/js/utils/jquery-3.7.1.js"></script>
+    <script ttype="text/javascript" src="../../static/js/utils/html-components.js"></script>
+    <script type="module" src="../../static/js/login/login.js"></script>
 
     <link rel="shortcut icon" href="../../static/img/logo-white-square/logo-transparent-svg.svg" type="image/x-icon">
 </head>
@@ -35,12 +35,13 @@ $logged = isset($_SESSION["idLab"]) ? "true" : "false";
             <div class="hero-wrapper">
                 <h1>Flask Manager</h1>
                 <p class="subtext">
-                    Gestión inteligente para laboratorios de análisis de agua.
-                    
-                    Un mini LIMS sencillo pero potente.
+                    Optimiza la gestión de muestras de agua en tu laboratorio con una herramienta ligera, accesible y eficaz.
                 </p>
                 <p>
-                    <a href="./login/login.php" class="btn btn-primary" id="btn-hero">Comenzar</a>
+                    Un mini LIMS diseñado para ser simple, funcional y sin complicaciones.
+                </p>
+                <p>
+                    <a href="./crud/vista-clientes.php" class="btn btn-primary" id="btn-hero">Comenzar</a>
                 </p>
             </div>
         </section>
@@ -68,6 +69,39 @@ $logged = isset($_SESSION["idLab"]) ? "true" : "false";
                 </div>
             </div>
         </section>
+
+        <section class="philosophy">
+            <div class="section-wrapper">
+                <h2>¿Por qué Flask Manager?</h2>
+                <ul class="philosophy-list">
+                <li>
+                    <svg class="icon-check" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M16 2L6 14 0 8l2-2 4 4L14 0z"/>
+                    </svg>
+                    <strong>Nació de una necesidad real:</strong>&nbsp;este proyecto surgió para resolver los dolores de cabeza diarios en un pequeño laboratorio de análisis de agua.
+                </li>
+                <li>
+                    <svg class="icon-check" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M16 2L6 14 0 8l2-2 4 4L14 0z"/>
+                    </svg>
+                    <strong>Simple e intuitivo:</strong>&nbsp;está pensado para que cualquier persona pueda usarlo sin formación previa.
+                </li>
+                <li>
+                    <svg class="icon-check" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M16 2L6 14 0 8l2-2 4 4L14 0z"/>
+                    </svg>
+                    <strong>Mejor que una hoja de Excel, más ligero que otros LIMS:</strong>&nbsp;olvídate de archivos sueltos, errores humanos y programas sobredimensionados.
+                </li>
+                <li>
+                    <svg class="icon-check" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M16 2L6 14 0 8l2-2 4 4L14 0z"/>
+                    </svg>
+                    <strong>Open source y sin ánimo de lucro:</strong>&nbsp;es libre, gratuito y está hecho con la idea de ayudar, no de venderte una suscripción.
+                </li>
+                </ul>
+            </div>
+        </section>
+
 
 
         <section class="contact">

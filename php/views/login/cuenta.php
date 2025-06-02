@@ -22,9 +22,9 @@ $logged = "true";
     <link rel="stylesheet" type="text/css" href="../../../static/css/toast.css">
     <link rel="stylesheet" type="text/css" href="../../../static/css/login.css">
 
-    <script type="text/javascript" src="../../../static/js/jquery-3.7.1.js"></script>
-    <script type="text/javascript" src="../../../static/js/html-components.js"></script>
-    <script type="module" src="../../../static/js/cuenta.js"></script>
+    <script type="text/javascript" src="../../../static/js/utils/jquery-3.7.1.js"></script>
+    <script type="text/javascript" src="../../../static/js/utils/html-components.js"></script>
+    <script type="module" src="../../../static/js/login/cuenta.js"></script>
 
     <link rel="shortcut icon" href="../../../static/img/logo-white-square/logo-transparent-svg.svg" type="image/x-icon">
 </head>

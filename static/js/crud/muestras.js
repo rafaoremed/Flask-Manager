@@ -261,6 +261,7 @@ function cargarTablaMuestras() {
                     let editable = true;
                     let enviable = false;
                     let incidencias = false;
+                    const enviada = muestra.estado == 1 || muestra.estado === "enviada";
 
                     if(muestra.incidencias == 1 || muestra.incidencias == "true"){
                         incidencias = true;
@@ -269,22 +270,20 @@ function cargarTablaMuestras() {
                     if(muestra.completada){
                         estadoTexto = "Completada";
                         claseEstado = "estado-completada"
-                        editable = false;
-                        enviable = true;
-                    }
 
-                    if(muestra.estado == 1 || muestra.estado === "enviada"){
-                        estadoTexto = "Enviada";
-                        claseEstado = "estado-enviada";
-                        editable = false;
-                        enviable = false;
-
-                        if(incidencias){
-                            claseEstado = "estado-incidencias";
+                        if (!enviada) {
+                            enviable = true;
                         }
                     }
 
-                    const txtIncidencias = incidencias? "Si" : "No";
+                    if(enviada){
+                        estadoTexto = "Enviada";
+                        claseEstado = incidencias ? "estado-incidencias" : "estado-enviada";
+                        editable = false;
+                        enviable = false;
+                    }
+
+                    const txtIncidencias = incidencias ? "Si" : "No";
 
                     const fila = `
                         <tr class='content ${claseEstado}' idMuestra='${muestra.id}'>
@@ -302,7 +301,7 @@ function cargarTablaMuestras() {
                         </td>
                         <td>
                             <button class="btn btn-primary ver-analisis">Ver análisis</button>
-                            <button class='enviar-muestra btn btn-primary' ${enviable ? "" : "disabled"}>Enviar análisis</button>
+                            <button class='enviar-muestra btn btn-primary' ${enviable ? "" : "hidden"}>Enviar análisis</button>
                             
                         </td>
                         </tr>

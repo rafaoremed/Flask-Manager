@@ -79,7 +79,7 @@ switch ($action) {
 
         // Guardar actualización
         $stmt = $pdo->prepare("UPDATE analisis 
-            SET coliformes=?, e_coli=?, pH=?, turbidez=?, color=?, conductividad=?, dureza=?, cloro=?, completada=?, incidencias=?
+            SET coliformes=?, e_coli=?, pH=?, turbidez=?, color=?, conductividad=?, dureza=?, cloro=?, fecha_analisis=DEFAULT, completada=?, incidencias=?
             WHERE id_muestra=?");
 
         $stmt->execute([

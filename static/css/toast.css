@@ -1,6 +1,6 @@
 #toast-container {
     position: fixed;
-    top: 20px;
+    top: 200px;
     right: 20px;
     z-index: 9999;
     margin-top: var(--spacing3);
@@ -23,4 +23,10 @@
     10%  { opacity: 1; transform: translateY(0); }
     90%  { opacity: 1; transform: translateY(0); }
     100% { opacity: 0; transform: translateY(-10px); }
+}
+
+@media (max-width:750px){
+    #toast-container {
+        top: 350px;
+    }
 }

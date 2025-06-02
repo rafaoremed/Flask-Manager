@@ -15,7 +15,9 @@ CREATE TABLE laboratorios (
     id CHAR(36) PRIMARY KEY,
     nombre VARCHAR(50) NOT NULL,
     email VARCHAR(50) NOT NULL UNIQUE,
-    pass VARCHAR(255) NOT NULL
+    pass VARCHAR(255) NOT NULL,
+    codigo_2fa VARCHAR(6),
+    expiracion_2fa DATETIME
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Tabla de clientes
@@ -53,6 +55,7 @@ CREATE TABLE analisis (
     conductividad FLOAT UNSIGNED,
     dureza SMALLINT UNSIGNED,
     cloro DECIMAL(3,2),
+    fecha_analisis DATE DEFAULT CURRENT_DATE,
     completada BOOLEAN DEFAULT FALSE,
     incidencias BOOLEAN DEFAULT FALSE,
     CONSTRAINT fk_analisis_mue_id FOREIGN KEY (id_muestra) REFERENCES muestras(id) ON UPDATE CASCADE ON DELETE CASCADE

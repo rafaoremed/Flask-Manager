@@ -31,8 +31,8 @@ if(!$id_muestra){
     <link rel="stylesheet" type="text/css" href="../../../static/css/clientes.css">
     <link rel="stylesheet" type="text/css" href="../../../static/css/analisis.css">
 
-    <script type="text/javascript" src="../../../static/js/jquery-3.7.1.js"></script>
-    <script ttype="text/javascript" src="../../../static/js/html-components.js"></script>
+    <script type="text/javascript" src="../../../static/js/utils/jquery-3.7.1.js"></script>
+    <script ttype="text/javascript" src="../../../static/js/utils/html-components.js"></script>
     <script type="module" src="../../../static/js/crud/analisis.js"></script>
 
     <link rel="shortcut icon" href="../../../static/img/logo-white-square/logo-transparent-svg.svg" type="image/x-icon">

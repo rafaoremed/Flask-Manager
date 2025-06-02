@@ -1,27 +1,39 @@
-main{
-    margin-top: - var(--spacing6);
+main {
+    margin: - var(--spacing6) 0;
     width: 100%;
     max-width: 100%;
 }
 
-h1{
-  text-transform: uppercase;
-  font-size: 2.5em;
-  padding: 1rem 0;
-}
-
-p{
+h1 {
+    text-transform: uppercase;
+    font-size: 2.5em;
     padding: 1rem 0;
 }
 
-.section-wrapper{
+p {
+    padding: 1rem 0;
+}
+
+.section-wrapper {
     padding: var(--spacing6) 0;
     width: 90%;
     max-width: 1600px;
     margin: 1rem auto;
 }
 
-.hero{
+section:nth-child(odd){
+    background-color: var(--color90);
+}
+
+.section-wrapper:first-child {
+    margin-top: 0;
+}
+
+.section-wrapper:last-child {
+    margin-bottom: 0;
+}
+
+.hero {
     margin-top: 0;
     width: 100%;
     max-width: 100%;
@@ -29,48 +41,44 @@ p{
         to right bottom,
         var(--color50),
         var(--color30),
-        var(--color10)
-    );
+        var(--color10));
     color: var(--text-light);
 }
 
-.hero-wrapper{
+.hero-wrapper {
     padding: var(--spacing6) 0;
     width: 90%;
     max-width: 1600px;
     margin: auto;
 }
 
-#btn-hero{
+#btn-hero {
     font-size: var(--fs-h-link);
     background: transparent;
     border: 1px solid;
     color: white;
     box-shadow: 2px 2px 1px var(--color70);
-    &:hover{
+    &:hover {
         background-color: white;
         border: none;
         color: var(--color50);
     }
 }
 
-.features{
+.features {}
 
-}
-
-h2{
+h2 {
     padding: 1em 0;
 }
 
-.feature-list{
+.feature-list {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    
     gap: var(--spacing4);
 }
 
-.feature{
+.feature {
     /* flex-grow: 1; */
     width: 350px;
     padding: 0.75rem 1rem;
@@ -82,24 +90,52 @@ h2{
     min-height: 180px;
 }
 
-.feature:hover{
+.feature:hover {
     scale: 1.02;
 }
 
-.feature h3{
+.feature h3 {
     padding: 0.75em 0;
 }
 
-.feature p{
+.feature p {
     opacity: 0.7;
 }
 
-@media (max-width:800px){
-    .feature-list{
+
+.philosophy-list {
+    list-style: none;
+    padding: 0;
+}
+
+.philosophy-list li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1.25rem;
+    font-size: 1rem;
+}
+
+.icon-check {
+    flex-shrink: 0;
+    width: 1.2rem;
+    height: 1.2rem;
+    margin-right: 0.75rem;
+    margin-top: 0.3rem;
+    color: var(--color30); /* puedes cambiarlo fácilmente */
+}
+
+.contact a{
+    color: var(--color30);
+}
+
+@media (max-width:800px) {
+    .feature-list {
         flex-direction: column;
     }
 
-    .feature{
+    .feature {
         width: 100%;
     }
 }
+
+

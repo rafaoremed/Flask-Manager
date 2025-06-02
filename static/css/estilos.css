@@ -18,16 +18,26 @@
   --spacing6: 80px;
   --spacing7: 160px;
 
-  --color10: hsl(270, 50%, 10%);        /* Fondo oscuro (modo dark) */
-  --color30: hsl(270, 50%, 30%);        /* Botones/áreas oscuras */
-  --color50: hsl(270, 50%, 50%);        /* Morado puro (acentos fuertes) */
-  --color70: hsl(270, 50%, 70%);        /* Acento claro */
-  --color90: hsl(270, 50%, 90%);        /* Fondo claro (modo claro) */
-  --color100: hsl(270, 50%, 98%);       /* Fondo casi blanco */
-  --accent: hsl(270, 90%, 60%);         /* Acento vibrante: botones, links */
-  --accent-hover: hsl(270, 90%, 50%);   /* Acento on hover */
-  --text-light: hsl(270, 30%, 90%);     /* Texto sobre fondo oscuro */
-  --text-dark: hsl(270, 20%, 15%);      /* Texto sobre fondo claro */
+  --color10: hsl(270, 50%, 10%);
+  /* Fondo oscuro (modo dark) */
+  --color30: hsl(270, 50%, 30%);
+  /* Botones/áreas oscuras */
+  --color50: hsl(270, 50%, 50%);
+  /* Morado puro (acentos fuertes) */
+  --color70: hsl(270, 50%, 70%);
+  /* Acento claro */
+  --color90: hsl(270, 50%, 90%);
+  /* Fondo claro (modo claro) */
+  --color100: hsl(270, 50%, 98%);
+  /* Fondo casi blanco */
+  --accent: hsl(270, 90%, 60%);
+  /* Acento vibrante: botones, links */
+  --accent-hover: hsl(270, 90%, 50%);
+  /* Acento on hover */
+  --text-light: hsl(270, 30%, 90%);
+  /* Texto sobre fondo oscuro */
+  --text-dark: hsl(270, 20%, 15%);
+  /* Texto sobre fondo claro */
 
   --fb: 'Inter', sans-serif;
   --fh: 'Raleway', sans-serif;
@@ -75,13 +85,13 @@ header {
   position: relative;
 }
 
-.header-left{
+.header-left {
   display: flex;
   flex-direction: column;
   gap: var(--spacing3);
 }
 
-.header-right{
+.header-right {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -93,13 +103,13 @@ header {
   object-fit: contain;
 }
 
-.nav-links{
+.nav-links {
   display: flex;
   flex-direction: row;
   gap: var(--spacing5);
 }
 
-.nav-links > a {
+.nav-links>a {
   text-transform: capitalize;
   font-size: var(--fs-h-link);
   color: var(--text-light);
@@ -143,7 +153,7 @@ header {
   color: var(--text-light);
   border: 1px solid;
   box-shadow: 2px 2px 1px var(--color70);
-  
+
 }
 
 .auth-buttons .btn:hover {
@@ -159,7 +169,8 @@ header {
     text-align: center;
   }
 
-  .left-section, .right-section {
+  .left-section,
+  .right-section {
     align-items: center;
   }
 
@@ -191,7 +202,7 @@ main {
 }
 
 /* Botones */
-main button{
+main button {
   box-shadow: 1px 1px 1px #666;
 }
 
@@ -287,4 +298,8 @@ footer {
   100% {
     clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 0);
   }
+}
+
+.hidden{
+  display: none;
 }

@@ -93,7 +93,7 @@ function eliminarCliente(e) {
     dataType: "text",
     success: function (response) {
       cargarTabla();
-      mostrarToast(response);
+      mostrarToast(response, "success");
     },
   });
 }
@@ -137,7 +137,7 @@ function guardarCliente() {
       limpiarFormulario();
       ocultarModal();
       cargarTabla();
-      mostrarToast(response);
+      mostrarToast(response, "success");
     },
   });
 }

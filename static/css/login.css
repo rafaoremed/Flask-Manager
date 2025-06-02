@@ -70,8 +70,14 @@ form label {
     font-weight: 600;
     color: var(--color30);
     margin-top: var(--spacing2);
-    margin-bottom: 2px;
     font-size: 0.95rem;
+}
+
+form a{
+    color: var(--accent);
+    &:hover{
+        color: var(--accent-hover);
+    }
 }
 
 /* Responsive spacing */
