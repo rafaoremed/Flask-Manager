@@ -12,6 +12,7 @@ h1 {
 
 p {
     padding: 1rem 0;
+    line-height: var(--spacing4);
 }
 
 .section-wrapper {
@@ -50,6 +51,38 @@ section:nth-child(odd){
     width: 90%;
     max-width: 1600px;
     margin: auto;
+    /* margin: 2%; */
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.hero-wrapper div, .hero-wrapper aside{
+    max-width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+@media (max-width:1700px) {
+    .hero-wrapper{
+        display: block !important;
+    }
+    .hero-wrapper div{
+        justify-content: flex-start;
+    }
+
+    .hero-wrapper aside{
+        display: none;
+    }
+
+    .hero-wrapper .text{
+        display: inline;
+        width: 100% !important;
+    }
+}
+
+.hero-action{
+    /* text-align: right; */
 }
 
 #btn-hero {
@@ -99,7 +132,7 @@ h2 {
     opacity: 0.7;
 }
 
-.philosophy .section-wrapper{
+.philosophy .section-wrapper, .hero-wrapper{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
@@ -136,6 +169,7 @@ h2 {
     height: auto;
     border-radius: 10px;
     transition: all 0.2s ease-in-out;
+    z-index: 50;
 }
 
 .section-image img:hover{
@@ -150,7 +184,7 @@ h2 {
 @media (max-width:1200px) {
     
     .philosophy .section-wrapper {
-        flex-direction: column;
+        flex-direction: column-reverse;
         align-items: center;
     }
 

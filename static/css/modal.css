@@ -30,7 +30,7 @@
     justify-content: center;
     align-items: center;
     position: fixed;
-    z-index: 9999;
+    z-index: 999;
     left: 0;
     top: 0;
     width: 100%;
@@ -54,7 +54,7 @@
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
     font-family: var(--fb);
     color: var(--text-dark);
-    z-index: 9999;
+    z-index: 999;
 }
 
 .modal-content h2,

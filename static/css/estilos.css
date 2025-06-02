@@ -303,3 +303,11 @@ footer {
 .hidden{
   display: none;
 }
+
+.inactiva{
+  cursor: default;
+  background-color: #666 !important;
+  &:hover{
+    background-color: #333 !important;
+  }
+}

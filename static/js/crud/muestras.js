@@ -10,6 +10,7 @@ function main() {
     $("#filtro-anio").val(hoy.getFullYear());
 
     actualizarInputFecha();
+    cargaInicial();
     cargarTablaMuestras();
     cargarSelectClientes();
 
@@ -133,15 +134,16 @@ function cargarSelectClientes() {
             url: urlClientes,
             type: "POST",
             dataType: "json",
-            delay: 150,
+            delay: 50,
             data: function (params) {
                 return {
                     action: "search",
                     term: params.term || "",
-                    csrf_token: $("#csrf_token").val(),
+                    csrf_token: $("#csrf_token").val()
                 };
             },
             processResults: function (data) {
+                console.log("Clientes recibidos:", data);
                 return {
                     results: data.map(function (cliente) {
                         return {
@@ -155,6 +157,32 @@ function cargarSelectClientes() {
         },
         minimumInputLength: 0,
     });
+    console.log("Carga select 2")
+}
+
+function cargaInicial(){
+        $.ajax({
+        type: "post",
+        url: urlClientes,
+        data: {
+            action: "search",
+            term: "",
+            csrf_token: $("#csrf_token").val(),
+            noCache: Math.random()
+        },
+        dataType: "json",
+        success: function (response) {
+            if(response.length === 0){
+                mostrarToast("No hay clientes disponibles. Agrega al menos uno para poder crear una muestra.", "warning");
+                // Desactivar el botón (ajusta el selector si es necesario)
+                $("#btn-nueva-muestra").prop("disabled", true);
+                $("#btn-nueva-muestra").toggleClass("inactiva");
+            }else{
+                $("#btn-nueva-muestra").prop("disabled", false);
+            }
+        }
+    });
+    console.log("Carga inicial")
 }
 
 function abrirModalNuevaMuestra() {

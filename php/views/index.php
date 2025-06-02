@@ -33,16 +33,21 @@ $logged = isset($_SESSION["idLab"]) ? "true" : "false";
     <main class="landing-main">
         <section class="hero">
             <div class="hero-wrapper">
-                <h1>Flask Manager</h1>
-                <p class="subtext">
-                    Optimiza la gestión de muestras de agua en tu laboratorio con una herramienta ligera, accesible y eficaz.
-                </p>
-                <p>
-                    Un mini LIMS diseñado para ser simple, funcional y sin complicaciones.
-                </p>
-                <p>
-                    <a href="./crud/vista-clientes.php" class="btn btn-primary" id="btn-hero">Comenzar</a>
-                </p>
+                <div class="text">
+                    <h1>Flask Manager</h1>
+                    <p class="subtext">
+                        Optimiza la gestión de muestras de agua en tu laboratorio con una herramienta ligera, accesible y eficaz.
+                    </p>
+                    <p>
+                        Un mini LIMS diseñado para ser simple, funcional y sin complicaciones.
+                    </p>
+                    <p class="hero-action">
+                        <a href="./crud/vista-clientes.php" class="btn btn-primary" id="btn-hero">Comenzar</a>
+                    </p>
+                </div>
+                <aside class="section-image">
+                    <img src="../../static/img/cerrar-cientifico-borroso-sosteniendo-placa-de-petri.jpg" alt="Personal de laboratorio sosteniendo placa petri" srcset="">
+                </aside>
             </div>
         </section>
 
@@ -72,6 +77,11 @@ $logged = isset($_SESSION["idLab"]) ? "true" : "false";
 
         <section class="philosophy">
             <div class="section-wrapper" >
+                
+                <aside class="section-image">
+                    <img src="../../static/img/doctor-realizando-investigaciones-medicas-en-laboratorio.jpg" alt="Personal de laboratorio usando un espectrofotómetro" srcset="">
+                </aside>
+
                 <div class="text">
                     <h2>¿Por qué Flask Manager?</h2>
                     <div class="philosophy-list">
@@ -94,9 +104,6 @@ $logged = isset($_SESSION["idLab"]) ? "true" : "false";
                         </div>
                     </div>
                 </div>
-                <aside class="section-image">
-                    <img src="../../static/img/doctor-realizando-investigaciones-medicas-en-laboratorio.jpg" alt="Personal de laboratorio usando un espectrofotómetro" srcset="">
-                </aside>
             </div>
         </section>
 
