@@ -10,7 +10,18 @@ $logged = isset($_SESSION["idLab"]) ? "true" : "false";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO básico -->
     <title>Inicio — Flask Manager</title>
+    <meta name="description" content="Flask Manager es una herramienta web gratuita y ligera que facilita la gestión de muestras de agua en laboratorios. Registra clientes, analiza muestras y genera informes PDF con un clic.">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Flask Manager">
+
+    <!-- Open Graph (para compartir en redes sociales) -->
+    <meta property="og:title" content="Flask Manager — Mini LIMS para laboratorios de agua">
+    <meta property="og:description" content="Optimiza tu laboratorio con esta herramienta web accesible y gratuita para registrar muestras, clientes y análisis.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://flaskmanager.com/">
+    <meta property="og:image" content="https://flaskmanager.com/static/img/logo-white-square/logo-transparent-svg.svg">
 
     <link rel="stylesheet" type="text/css" href="../../static/css/estilos.css">
     <link rel="stylesheet" type="text/css" href="../../static/css/toast.css">
