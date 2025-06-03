@@ -6,7 +6,9 @@ require_once '../utils/generarUUID.php';
 require_once '../utils/enviar-2fa.php';
 require_once 'db.php';
 
-$url = "http://localhost/Flask-Manager/php/views/login/cambio-pass.php";
+// Cambiar en el hosting por el nombre del dominio
+$dominio = "localhost";
+$url = "http://$dominio/Flask-Manager/php/views/login/cambio-pass.php";
 
 $action = $_POST['action'] ?? '';
 
