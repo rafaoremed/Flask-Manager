@@ -1,9 +1,4 @@
--- Crear base de datos
-DROP DATABASE IF EXISTS lab;
-
-CREATE DATABASE lab;
-
-USE lab;
+USE dbs14293319;
 
 -- Eliminar tablas si existen
 DROP TABLE IF EXISTS analisis;

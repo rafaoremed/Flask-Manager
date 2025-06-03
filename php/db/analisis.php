@@ -63,6 +63,7 @@ switch ($action) {
         $conductividad = valorONull($_POST['conductividad'] ?? null);
         $dureza = valorONull($_POST['dureza'] ?? null);
         $cloro = valorONull($_POST['cloro'] ?? null);
+        $fecha_analisis = date('Y-m-d');    // Cargar la fecha actual de forma automática
 
         $completada = isset($_POST['completada']) ? (bool)$_POST['completada'] : false;
 
@@ -79,12 +80,12 @@ switch ($action) {
 
         // Guardar actualización
         $stmt = $pdo->prepare("UPDATE analisis 
-            SET coliformes=?, e_coli=?, pH=?, turbidez=?, color=?, conductividad=?, dureza=?, cloro=?, fecha_analisis=DEFAULT, completada=?, incidencias=?
+            SET coliformes=?, e_coli=?, pH=?, turbidez=?, color=?, conductividad=?, dureza=?, cloro=?, fecha_analisis=?, completada=?, incidencias=?
             WHERE id_muestra=?");
 
         $stmt->execute([
             $coliformes, $e_coli, $ph, $turbidez, $color, $conductividad, $dureza, $cloro,
-            $completada, $incidencia, $id_muestra
+            $fecha_analisis, $completada, $incidencia, $id_muestra
         ]);
 
         echo json_encode([
