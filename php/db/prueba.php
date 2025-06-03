@@ -1,9 +1,9 @@
 <?php
 require_once './db.php';
-require_once '../libs/tcpdf/tcpdf.php'; // ajusta el path si usas Composer o la descargaste manualmente
+require_once '../libs/tcpdf/tcpdf.php';
 
 // ID del laboratorio
-$id_muestra = "467e5a8fb3875023e6fc1f17258dd854 ";
+$id_muestra = "";   // Hacer "select*from muestras;" para obtener el id deseado
 
 // Obtener los datos
 $stmt = $pdo->prepare("

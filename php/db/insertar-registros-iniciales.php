@@ -5,10 +5,10 @@ try {
     $conn = new PDO("mysql:host=localhost;dbname=lab;charset=utf8mb4", 'root', '');
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    // 🔐 Encriptar contraseña del laboratorio
+    // Encriptar contraseña del laboratorio
     $password = password_hash('FManager@123', PASSWORD_DEFAULT);
 
-    // 📌 Insertar laboratorio
+    // Insertar laboratorio
     $stmt = $conn->prepare("INSERT INTO laboratorios (id, nombre, email, pass) VALUES (UUID(), :nombre, :email, :pass)");
     $stmt->execute([
         ':nombre' => 'Bright Falls Lab',
@@ -16,12 +16,12 @@ try {
         ':pass' => $password
     ]);
 
-    // 🔍 Obtener ID del laboratorio
+    // Obtener ID del laboratorio
     $stmt = $conn->prepare("SELECT id FROM laboratorios WHERE email = :email");
     $stmt->execute([':email' => 'rafa.test.php.1@gmail.com']);
     $lab_id = $stmt->fetch(PDO::FETCH_ASSOC)['id'];
 
-    // 📌 Insertar clientes
+    // Insertar clientes
     $stmt = $conn->prepare("INSERT INTO clientes (id, id_laboratorio, nombre, email) VALUES (UUID(), :id_laboratorio, :nombre, :email)");
     $clientes = [
         ['Ana Torres', 'ana.torres@email.com'],
@@ -44,7 +44,7 @@ try {
         ]);
     }
 
-    // 🔍 Obtener IDs de clientes
+    // Obtener IDs de clientes
     $stmt = $conn->prepare("SELECT id FROM clientes WHERE email = :email");
     $stmt->execute([':email' => 'ana.torres@email.com']);
     $cli1_id = $stmt->fetch(PDO::FETCH_ASSOC)['id'];
@@ -52,7 +52,7 @@ try {
     $stmt->execute([':email' => 'carlos.mendez@email.com']);
     $cli2_id = $stmt->fetch(PDO::FETCH_ASSOC)['id'];
 
-    // 📌 Insertar muestras con fecha y UUID generados desde PHP
+    // Insertar muestras con fecha y UUID generados desde PHP
     $stmt = $conn->prepare("
         INSERT INTO muestras (id, id_cliente, numero, fecha, direccion, tipo_analisis)
         VALUES (:id, :id_cliente, :numero, :fecha, :direccion, :tipo_analisis)
@@ -80,7 +80,7 @@ try {
         $id_map[$muestra[1]] = $uuid;
     }
 
-    // 📌 Insertar análisis
+    // Insertar análisis
     $stmt = $conn->prepare("
         INSERT INTO analisis (id_muestra, coliformes, e_coli, pH, turbidez, color, conductividad, dureza, cloro, completada)
         VALUES (:id_muestra, :coliformes, :e_coli, :ph, :turbidez, :color, :conductividad, :dureza, :cloro, :completada)

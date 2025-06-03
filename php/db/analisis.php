@@ -108,7 +108,7 @@ switch ($action) {
     
 }
 
-
+// Asegurar que si el campo viene vacío del front se use null
 function valorONull($valor) {
     return $valor === '' ? null : $valor;
 }

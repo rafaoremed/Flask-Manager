@@ -34,7 +34,7 @@ $logged = "true";
     <main class="form-container">
         <h1>Mi cuenta</h1>
         <form id="form-account">
-            <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
+            <input type="hidden" id="csrf_token" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
             <input type="hidden" name="id" value="<?php echo $_SESSION['idLab']; ?>">
 
             <label for="nombre">Nombre</label>
@@ -53,6 +53,7 @@ $logged = "true";
                 <span id="btn-text">Guardar cambios</span>
                 <span id="spinner" style="display:none;" class="loader"></span>
             </button>
+            <button class='btn btn-danger' id="eliminar-cuenta">Eliminar cuenta</button>
         </form>
         <div id="toast-container"></div>
     </main>

@@ -1,12 +1,45 @@
 import { mostrarToast } from '../utils/toast.js';
 
 document.addEventListener("DOMContentLoaded", main);
+const urlLaboratorios = "../../db/laboratorios.php";
 
 function main() {
     $("#form-account").on("submit", function (e) {
         e.preventDefault();
         actualizarCuenta();
     });
+
+    $("#eliminar-cuenta").on("click", function(e){
+        e.preventDefault();
+        eliminarCuenta();
+    })
+}
+
+async function eliminarCuenta() {
+    if(!confirm("¿Estás seguro de que quieres eliminar tu cuenta?")) return;
+
+    $.ajax({
+        type: "post",
+        url: urlLaboratorios,
+        data: {
+            csrf_token: document.querySelector("input[name='csrf_token']").value,
+            id: document.querySelector("input[name='id']").value,
+            action: "delete"
+        },
+        dataType: "text",
+        success: function (response) {
+            console.log(response);
+            mostrarToast(response, "success");
+            setTimeout(() => {
+                window.location.href = "./logout.php";
+            }, 1500)
+        },
+        error: function(response){
+            console.error(response)
+            mostrarToast(response, "error");
+        }
+    });
+
 }
 
 async function actualizarCuenta() {
@@ -74,7 +107,7 @@ async function actualizarCuenta() {
 
     try {
         const inicio = Date.now();
-        const response = await fetch("../../db/laboratorios.php", {
+        const response = await fetch(urlLaboratorios, {
             method: "POST",
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded"

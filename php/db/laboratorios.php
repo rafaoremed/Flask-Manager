@@ -131,10 +131,6 @@ switch ($action) {
             $_SESSION['emailLab'] = $email;
             echo "Laboratorio actualizado";
 
-
-            /* $stmt = $pdo->prepare("UPDATE laboratorios SET nombre = ?, email = ? WHERE id = ?");
-            $stmt->execute([$nombre, $email, $id]);
-            echo "Laboratorio actualizado"; */
         } catch (PDOException $e) {
             http_response_code(500);
             echo "Error al actualizar el laboratorio: " . $e->getMessage();
@@ -194,12 +190,11 @@ function logearse($pdo, $email){
     // Enviar el código por correo
     enviarCodigo2FA($email, $codigo);
 
-    // ⚠️ No iniciar sesión todavía
+    // No iniciar sesión todavía
     $_SESSION["pending_2fa"] = $result["id"];
     session_write_close();
     session_start();
     echo "2FA";
-
 }
 
 ?>
