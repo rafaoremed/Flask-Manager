@@ -106,6 +106,7 @@ function cargarFormulario(){
             }else if(tipo === "MICRO"){
                 html += generarCampo("coliformes", analisis.coliformes);
                 html += generarCampo("e_coli", analisis.e_coli);
+                html += generarCampo("cloro", analisis.cloro);
             }else{
                 html += generarCampo("coliformes", analisis.coliformes);
                 html += generarCampo("e_coli", analisis.e_coli);

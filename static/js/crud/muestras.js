@@ -3,6 +3,7 @@ import { mostrarToast } from "../utils/toast.js";
 document.addEventListener("DOMContentLoaded", main);
 const urlClientes = "../../db/clientes.php";
 const urlMuestras = "../../db/muestras.php";
+const urlEnvio = "../../db/enviar-informe.php";
 
 function main() {
     const hoy = new Date();
@@ -266,7 +267,7 @@ function cargarTablaMuestras() {
 
     $.ajax({
         type: "post",
-        url: "../../db/muestras.php",
+        url: urlMuestras,
         data: {
             action: "read",
             csrf_token: $("#csrf_token").val().trim(),
@@ -280,16 +281,13 @@ function cargarTablaMuestras() {
                 $(".empty").show();
             } else {
                 response.forEach((muestra) => {
-                    // TODO comprobar si está completada y enviada para habilitar o deshabilitar el botón de enviar
-                    // TODO si está completada deshabilitar el botón de editar
-
-
                     let estadoTexto = "Pendiente";
                     let claseEstado = "estado-pendiente";
                     let editable = true;
                     let enviable = false;
                     let incidencias = false;
-                    const enviada = muestra.estado == 1 || muestra.estado === "enviada";
+                    let enviada = muestra.enviado;
+                    
 
                     if(muestra.incidencias == 1 || muestra.incidencias == "true"){
                         incidencias = true;
@@ -305,6 +303,7 @@ function cargarTablaMuestras() {
                     }
 
                     if(enviada){
+                        console.log("Muestra " + muestra.numero + " enviada")
                         estadoTexto = "Enviada";
                         claseEstado = incidencias ? "estado-incidencias" : "estado-enviada";
                         editable = false;
@@ -423,7 +422,6 @@ function buscar() {
 
 
 function enviarMuestra(){
-    // TODO generar pdf con los análisis y enviarlos
     const fila = $(this).closest("tr");
     const idMuestra = fila.attr("idMuestra");
     const estado = fila.find("td[data-att='estado']").text().trim();
@@ -434,7 +432,7 @@ function enviarMuestra(){
     }
 
     // Confirmación opcional
-    if (!confirm("¿Deseas enviar el análisis y generar el informe en PDF?")) return;
+    if (!confirm("¿Deseas generar el informe en PDF y enviar el análisis?")) return;
 
     // Deshabilitar botón y mostrar spinner
     const boton = $(this);
@@ -443,7 +441,7 @@ function enviarMuestra(){
 
     $.ajax({
         type: "POST",
-        url: "../../db/enviar_analisis.php", // o el archivo correspondiente
+        url: urlEnvio, 
         data: {
             id: idMuestra,
             csrf_token: $("#csrf_token").val(),
@@ -453,7 +451,7 @@ function enviarMuestra(){
         success: function (response) {
             if (response.success) {
                 mostrarToast("Análisis enviado correctamente.", "success");
-                cargarTablaMuestras(); // refresca la tabla para reflejar estado
+                cargarTablaMuestras(); // Refresca la tabla para reflejar estado
             } else {
                 mostrarToast(response.message || "No se pudo enviar el análisis.", "error");
             }
@@ -470,6 +468,6 @@ function enviarMuestra(){
 function actualizarInputFecha(){
     const inputMes = document.getElementById('selector-mes');
     const hoy = new Date();
-    const mesActual = hoy.toISOString().slice(0, 7); // formato "YYYY-MM"
+    const mesActual = hoy.toISOString().slice(0, 7); // Formato "YYYY-MM"
     inputMes.value = mesActual;
 }
