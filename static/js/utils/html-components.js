@@ -16,8 +16,6 @@ class THeader extends HTMLElement {
       `
       : "";
 
-    // <a href="${pageLinks}vista-analisis.php" class="link-animation">Análisis</a>  
-
     // Botones de autenticación
     const authButtons = isLogged
       ? `
@@ -67,46 +65,5 @@ class TFooter extends HTMLElement {
       </footer>
     `;
   }
-
-/*   connectedCallback() {
-    this.innerHTML = `
-      <footer>
-        <div class="footer">
-          <div class="footer-left">
-            <img class="logo" src="img/almost logo.png" />
-            <p>
-              We build websites that load in under a minute. <br />
-              Sometimes even faster.
-            </p>
-          </div>
-          <div class="footer-right">
-            <div class="social-media-icons">
-              <img src="img/icons8-github.svg" class="social-media" />
-              <img src="img/icons8-linkedin.svg" class="social-media" />
-              <img src="img/icons8-x.svg" class="social-media" />
-              <img src="img/icons8-youtube.svg" class="social-media" />
-            </div>
-            <p>
-              3 Way, 69th Street, Somewhere, USB <br />
-              123-456-7890 <br />
-              bye@almost.dev
-            </p>
-          </div>
-        </div>
-      </footer>
-    `;
-  } */
 }
 customElements.define("t-footer", TFooter);
-
-// hamburger
-/* const ham = document.querySelector(".ham");
-const nav = document.querySelector("nav");
-ham.addEventListener("click", toggle);
-nav.addEventListener("click", toggle);
-function toggle() {
-  ham.src = ham.src.includes("img/ham-close.svg")
-    ? "img/ham-open.svg"
-    : "img/ham-close.svg";
-  nav.classList.toggle("show");
-} */

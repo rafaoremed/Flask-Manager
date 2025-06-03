@@ -12,6 +12,13 @@ h1 {
 
 h2{
     font-size: 2em;
+    padding: 1em 0;
+    color: var(--color50);
+}
+
+h3 {
+    padding: 0.75em 0;
+    color: var(--accent);
 }
 
 p {
@@ -55,7 +62,6 @@ section:nth-child(odd){
     width: 90%;
     max-width: 1600px;
     margin: auto;
-    /* margin: 2%; */
     display: flex;
     justify-content: space-evenly;
 }
@@ -85,10 +91,6 @@ section:nth-child(odd){
     }
 }
 
-.hero-action{
-    /* text-align: right; */
-}
-
 #btn-hero {
     font-size: var(--fs-h-link);
     background: transparent;
@@ -100,10 +102,6 @@ section:nth-child(odd){
         border: none;
         color: var(--color50);
     }
-}
-
-h2 {
-    padding: 1em 0;
 }
 
 .feature-list {
@@ -126,10 +124,6 @@ h2 {
 
 .feature:hover {
     scale: 1.02;
-}
-
-.feature h3 {
-    padding: 0.75em 0;
 }
 
 .feature p {
@@ -211,11 +205,9 @@ h2 {
     .feature {
         width: 100%;
     }
-
 }
 
 /* Formulario */
-
 .contact-form {
     margin: auto;
     display: flex;
@@ -248,9 +240,9 @@ h2 {
 
 .contact-form button {
     align-self: flex-start;
+    font-size: 1.1em;
+    box-shadow: 0 0 12px var(--accent);
+    &:hover{
+        box-shadow: 0 0 24px var(--accent-hover);
+    }
 }
-
-.contact-form h2{
-    color: var(--color50);
-}
-
