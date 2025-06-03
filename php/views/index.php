@@ -18,7 +18,8 @@ $logged = isset($_SESSION["idLab"]) ? "true" : "false";
 
     <script type="text/javascript" src="../../static/js/utils/jquery-3.7.1.js"></script>
     <script ttype="text/javascript" src="../../static/js/utils/html-components.js"></script>
-    <script type="module" src="../../static/js/login/login.js"></script>
+    <script type="module" src="../../static/js/index.js"></script>
+
 
     <link rel="shortcut icon" href="../../static/img/logo-white-square/logo-transparent-svg.svg" type="image/x-icon">
 </head>
@@ -110,11 +111,30 @@ $logged = isset($_SESSION["idLab"]) ? "true" : "false";
 
 
         <section class="contact">
-            <div class="section-wrapper">    
-                <h2>Contacto</h2>
+            <div class="section-wrapper" id="form-contacto">    
+                
+                <!-- 
                 <p>¿Tienes dudas o sugerencias? Escríbenos a <a href="mailto:info@flaskmanager.com">info@flaskmanager.com</a></p>
+                -->
+                <form id="contact-form" method="post" class="contact-form">
+                    <h2>¿Tienes alguna duda? Ponte en contacto con nosotros</h2>
+                    <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
+
+                    <label for="nombre">Nombre</label>
+                    <input type="text" id="nombre" name="nombre" required>
+
+                    <label for="email">Correo electrónico</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="mensaje">Mensaje</label>
+                    <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+
+                    <button type="submit" class="btn btn-primary">Enviar mensaje</button>
+                </form>
+
             </div>
         </section>
+        <div id="toast-container"></div>
     </main>
 
     <t-footer></t-footer>
