@@ -4,6 +4,7 @@ require_once '../utils/csrf.php';
 require_once '../utils/validaciones.php';
 require_once '../utils/generarUUID.php';
 require_once '../utils/enviar-2fa.php';
+require_once '../utils/cambiar-pass.php';
 require_once 'db.php';
 
 // Cambiar en el hosting por el nombre del dominio

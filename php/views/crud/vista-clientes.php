@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <?php
 session_start();
 if (!isset($_SESSION["idLab"])) {
@@ -10,6 +9,7 @@ if (empty($_SESSION['csrf_token'])) {
 }
 $logged = isset($_SESSION["idLab"]) ? "true" : "false";
 ?>
+<!DOCTYPE html>
 <html lang="es">
 
 <head>

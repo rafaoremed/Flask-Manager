@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <?php
 session_start();
 if (!isset($_SESSION["idLab"])) {
@@ -18,6 +17,7 @@ if(!$id_muestra){
 
 
 ?>
+<!DOCTYPE html>
 
 <html lang="es">
 <head>
