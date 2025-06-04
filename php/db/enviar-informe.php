@@ -54,6 +54,7 @@ try{
     $mail->Password = $config['SMTP_PASSWORD'];
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
     $mail->Port = 587;
+    $mail->CharSet = 'UTF-8';
 
     // --- Remitente y destinatario ---
     $mail->setFrom($config['SMTP_USERNAME'], $laboratorio_nombre);

@@ -64,6 +64,6 @@ function cambiarPass($destinatario, $enlace){
 
         $mail->send();
     } catch (Exception $e) {
-        throw new Exception("No se pudo enviar el correo de 2FA. Error: " . $e->getMessage());
+        throw new Exception("No se pudo enviar el correo de recuperación de contraseña. Error: " . $e->getMessage());
     }
 }

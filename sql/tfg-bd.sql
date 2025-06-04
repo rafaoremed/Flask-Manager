@@ -7,13 +7,9 @@ USE lab;
 
 -- Eliminar tablas si existen
 DROP TABLE IF EXISTS analisis;
-
-DROP TABLE IF EXISTS usuclimue;
-
 DROP TABLE IF EXISTS muestras;
-
 DROP TABLE IF EXISTS clientes;
-
+DROP TABLE IF EXISTS recuperaciones;
 DROP TABLE IF EXISTS laboratorios;
 
 -- Tabla de laboratorios

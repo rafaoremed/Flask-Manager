@@ -5,6 +5,7 @@ const urlAnalisis = "../../db/analisis.php";
 const urlLimites = "../../db/limites.php";
 let limites = {};
 let ultimoConteoExcedidos = 0;
+let inicializando = false;
 
 function main(){
     cargarFormulario();
@@ -131,11 +132,15 @@ function cargarFormulario(){
                     <input type="submit" value="Guardar" class="btn btn-primary" id="btn-guardar">`
 
             $("#analisis-container").html(html);
+
             cargarLimitesYActivarValidacion(() => {
+                inicializando = true;
                 // Validar todos los campos al cargar si ya tienen valor
                 $("#analisis-container input[type='number']").each(function() {
                     validarCampo(this);
                 });
+                inicializando = false;
+                contarExcedidos(); 
             });
 
             if(analisis.enviado){
@@ -235,7 +240,9 @@ function validarCampo(input) {
     }
 
     $input.toggleClass("valor-excedido", excede);
-    contarExcedidos();
+    if (!inicializando) {
+        contarExcedidos();
+    }
 }
 
 function contarExcedidos() {
@@ -247,8 +254,10 @@ function contarExcedidos() {
 
     if (excedidos !== ultimoConteoExcedidos) {
         ultimoConteoExcedidos = excedidos;
-
-        if (excedidos > 0) {
+        if (excedidos == 1) {
+            mostrarToast(`Hay ${excedidos} valor fuera de los límites`, "warning");
+        }
+        if (excedidos > 1) {
             mostrarToast(`Hay ${excedidos} valores fuera de los límites`, "warning");
         }
     }
