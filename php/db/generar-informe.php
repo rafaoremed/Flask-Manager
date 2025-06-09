@@ -103,6 +103,7 @@ function generarPDF(int|string $id_muestra): array|false
     return [
         'pdf_data'            => $pdf_data,
         'cliente_email'       => $fila['cliente_email'],
+        'laboratorio_email'   => $fila['laboratorio_email'],
         'cliente_nombre'      => $fila['cliente_nombre'],
         'laboratorio_nombre'  => $fila['laboratorio_nombre'],
         'muestra_numero'      => $fila['muestra_numero'],

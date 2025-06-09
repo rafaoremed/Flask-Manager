@@ -38,6 +38,7 @@ $pdf_data           = $pdf_info['pdf_data'];
 $cliente_email      = $pdf_info['cliente_email'];
 $cliente_nombre     = $pdf_info['cliente_nombre'];
 $laboratorio_nombre = $pdf_info['laboratorio_nombre'];
+$laboratorio_email  = $pdf_info['laboratorio_email'];
 $muestra_numero     = $pdf_info['muestra_numero'];
 $fecha_analisis     = $pdf_info['fecha_analisis'];
 
@@ -59,6 +60,7 @@ try{
     // --- Remitente y destinatario ---
     $mail->setFrom($config['SMTP_USERNAME'], $laboratorio_nombre);
     $mail->addAddress($cliente_email, $cliente_nombre);
+    $mail->addBCC($laboratorio_email);
 
     // --- Asunto y cuerpo ---
     $mail->Subject = "Informe de muestra #{$muestra_numero}";
