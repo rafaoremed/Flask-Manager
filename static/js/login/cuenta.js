@@ -16,7 +16,7 @@ function main() {
 }
 
 async function eliminarCuenta() {
-    if(!confirm("¿Estás seguro de que quieres eliminar tu cuenta?")) return;
+    if(!confirm("¿Estás seguro de que quieres eliminar tu cuenta? Se borrarán todos los datos asociados.")) return;
 
     $.ajax({
         type: "post",

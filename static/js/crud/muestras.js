@@ -61,7 +61,7 @@ function main() {
 }
 
 function eliminarMuestra() {
-    if (!confirm("¿Estás seguro de que quieres eliminar esta muestra?")) return;
+    if (!confirm("¿Estás seguro de que quieres eliminar esta muestra? Se eliminará también su análisis asociado.")) return;
 
     const fila = $(this).closest("tr");
     const id = fila.attr("idMuestra");

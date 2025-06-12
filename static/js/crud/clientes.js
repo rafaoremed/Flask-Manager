@@ -78,7 +78,7 @@ function cargarTabla() {
 }
 
 function eliminarCliente(e) {
-  if (!confirm("¿Estás seguro de que quieres eliminar este cliente?")) return;
+  if (!confirm("¿Estás seguro de que quieres eliminar este cliente? Se eliminarán todas sus muestras asociadas.")) return;
 
   e.preventDefault();
   const id = $(e.target).closest("tr").attr("idCliente");
