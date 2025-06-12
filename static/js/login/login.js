@@ -61,7 +61,7 @@ async function validar(){
             mostrarToast("Código de verificación enviado", "info");
             setTimeout(() => {
                 window.location.href = './verificar-codigo.php';
-            }, 500);
+            }, 2500);
         } else {
             mostrarToast(text || "Credenciales incorrectas.", "error");
             limpiarPass();

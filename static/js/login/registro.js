@@ -69,7 +69,7 @@ async function validar() {
             mostrarToast(text, "success");
             setTimeout(() => {
                 window.location.href = 'login.php';
-            }, 500);
+            }, 2500);
         } else {
             mostrarToast(text || "Ha ocurrido un error.", "error");
         }
