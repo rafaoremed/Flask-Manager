@@ -79,7 +79,7 @@ async function validar(){
                 setTimeout(() => {
                     document.getElementById("form-credentials").classList.add("hidden");
                     document.getElementById("mensaje").classList.remove("hidden");
-                }, 500);
+                }, 2500);
             }else{
                 mostrarToast(response || "No se ha encontrado ninguna cuenta asociada a ese correo.", "error");
             }

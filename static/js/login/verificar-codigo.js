@@ -52,7 +52,7 @@ async function validar(){
             mostrarToast("Inicio de sesión exitoso", "success");
             setTimeout(() => {
                 window.location.href = '../crud/vista-clientes.php';
-            }, 500);
+            }, 2500);
         } else {
             mostrarToast(text || "Credenciales incorrectas.", "error");
             limpiarPass();

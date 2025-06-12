@@ -68,7 +68,7 @@ async function validar(token){
                 window.location.href = '../login/login.php';
                 document.getElementById("form-credentials").classList.add("hidden");
                 document.getElementById("mensaje").classList.remove("hidden");
-            }, 500);
+            }, 2500);
         } else if(response.ok && text.trim() === "2"){
             mostrarToast("Ha ocurrido un error y no se ha podido restablecer su contraseña.", "error");
         }
