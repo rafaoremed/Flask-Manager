@@ -58,8 +58,8 @@ async function validar(){
             limpiarPass();
         }
     }catch(error){
-        console.error("Error en la petición:", error);
-        mostrarToast("No se pudo conectar con el servidor.", "error");
+        console.error("Error en la petición: ", error);
+        // mostrarToast("No se pudo conectar con el servidor.", "error");
     }
     
 }
