@@ -34,7 +34,8 @@ $logged = isset($_SESSION["idLab"]) ? "true" : "false";
 
     <main>
         <div class="clientes-header">
-            <h1>Clientes</h1>
+            <h1>Laboratorio: <?php echo $_SESSION["nombreLab"] ?></h1>
+            <h2>Clientes</h2>
             <div class="search-bar">
                 <form action="" class="form-search">
                     <input type="text" name="search" id="input-search" placeholder="Buscar">

@@ -58,7 +58,7 @@ async function validar(){
         const text = await response.text();
 
         if (response.ok && text.trim() === "2FA") {
-            mostrarToast("Código de verificación enviado", "info");
+            mostrarToast("Código de verificación enviado al correo electrónico", "info");
             setTimeout(() => {
                 window.location.href = './verificar-codigo.php';
             }, 2500);

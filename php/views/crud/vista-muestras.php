@@ -40,7 +40,8 @@ $logged = isset($_SESSION["idLab"]) ? "true" : "false";
     <t-header page-links="./" index-link="../" session-links="../login/" logged="<?php echo $logged ?>"></t-header>
     <main>
         <div class="clientes-header">
-            <h1>Muestras</h1>
+            <h1>Laboratorio: <?php echo $_SESSION["nombreLab"] ?></h1>
+            <h2>Muestras</h2>
             <div class="search-bar">
             <form action="" class="form-search">
                 <input type="text" name="search" id="input-search" placeholder="Buscar por número, nombre de cliente o dirección">

@@ -42,9 +42,10 @@ if(!$id_muestra){
 
     <main>
     <div class="clientes-header">
-        <h1>Análisis</h1>
-        <h2>Número de muestra: <?php echo $_GET["numero"] ?></h2>
-        <h2>Tipo de análisis: <?php echo $_GET["tipo"] ?></h2>
+        <h1>Laboratorio: <?php echo $_SESSION["nombreLab"] ?></h1>
+        <h2>Análisis</h2>
+        <h3>Número de muestra: <?php echo $_GET["numero"] ?></h3>
+        <h3>Tipo de análisis: <?php echo $_GET["tipo"] ?></h3>
     </div>
 
         <form action="" id="form-analisis">

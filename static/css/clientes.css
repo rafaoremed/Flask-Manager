@@ -4,10 +4,6 @@ body {
     margin: 0;
 }
 
-h1{
-    text-transform: uppercase;
-}
-
 /* Search bar */
 .search-bar{
     display: flex;
@@ -236,7 +232,12 @@ input.form-control {
 
 /* Encabezados */
 h1, h2 {
-    color: #4b007d;
+    text-transform: uppercase;
+}
+
+h1, h2, h3 {
+    color: var(--color50);
+    padding: var(--spacing1) 0;
 }
 
 /* Prueba tarjetas */
