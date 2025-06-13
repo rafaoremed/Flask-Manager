@@ -98,25 +98,25 @@ function cargarFormulario(){
             let html = "";
 
             if(tipo === "FQ"){
-                html += generarCampo("ph", analisis.pH);
-                html += generarCampo("turbidez", analisis.turbidez);
-                html += generarCampo("color", analisis.color);
-                html += generarCampo("conductividad", analisis.conductividad);
-                html += generarCampo("dureza", analisis.dureza);
-                html += generarCampo("cloro", analisis.cloro);
+                html += generarCampo("ph", analisis.pH, "");
+                html += generarCampo("turbidez", analisis.turbidez, "(NTU)");
+                html += generarCampo("color", analisis.color, "(UH)");
+                html += generarCampo("conductividad", analisis.conductividad, "(µS/cm)");
+                html += generarCampo("dureza", analisis.dureza, "(mg/l)");
+                html += generarCampo("cloro", analisis.cloro), "(mg/l)";
             }else if(tipo === "MICRO"){
-                html += generarCampo("coliformes", analisis.coliformes);
-                html += generarCampo("e_coli", analisis.e_coli);
-                html += generarCampo("cloro", analisis.cloro);
+                html += generarCampo("coliformes", analisis.coliformes, "(UFC/ml)");
+                html += generarCampo("e_coli", analisis.e_coli, "(UFC/ml)");
+                html += generarCampo("cloro", analisis.cloro, "(mg/l)");
             }else{
-                html += generarCampo("coliformes", analisis.coliformes);
-                html += generarCampo("e_coli", analisis.e_coli);
-                html += generarCampo("ph", analisis.pH);
-                html += generarCampo("turbidez", analisis.turbidez);
-                html += generarCampo("color", analisis.color);
-                html += generarCampo("conductividad", analisis.conductividad);
-                html += generarCampo("dureza", analisis.dureza);
-                html += generarCampo("cloro", analisis.cloro);
+                html += generarCampo("coliformes", analisis.coliformes, "(UFC/ml)");
+                html += generarCampo("e_coli", analisis.e_coli, "(UFC/ml)");
+                html += generarCampo("ph", analisis.pH, "");
+                html += generarCampo("turbidez", analisis.turbidez, "(NTU)");
+                html += generarCampo("color", analisis.color, "(UH)");
+                html += generarCampo("conductividad", analisis.conductividad, "(µS/cm)");
+                html += generarCampo("dureza", analisis.dureza, "(mg/l)");
+                html += generarCampo("cloro", analisis.cloro, "(mg/l)");
             }
             html += `<div class="campo-check deshabilitado" id="check-wrapper">
                         <label class="check-label">
@@ -163,10 +163,10 @@ function cargarFormulario(){
 
 }
 
-function generarCampo(nombre, valor) {
+function generarCampo(nombre, valor, unidades) {
     return `
         <div class="campo">
-            <label for="${nombre}">${nombre.toUpperCase()}</label>
+            <label for="${nombre}">${nombre.toUpperCase()} ${unidades}</label>
             <input type="number" step="any" min="0" id="${nombre}" name="${nombre}" 
             value="${valor !== null && valor !== undefined ? valor : ''}" placeholder="0">
         </div>

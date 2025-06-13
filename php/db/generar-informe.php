@@ -71,25 +71,25 @@ function generarPDF(int|string $id_muestra): array|false
         - E. Coli: {$fila['e_coli']} UFC/ml<br>
         - pH: {$fila['pH']}<br>
         - Turbidez: {$fila['turbidez']} NTU<br>
-        - Color: {$fila['color']}<br>
+        - Color: {$fila['color']} UH<br>
         - Conductividad: {$fila['conductividad']} µS/cm<br>
-        - Dureza: {$fila['dureza']} mg/L<br>
-        - Cloro: {$fila['cloro']} mg/L<br>
+        - Dureza: {$fila['dureza']} mg/l<br>
+        - Cloro: {$fila['cloro']} mg/l<br>
         - Incidencias: " . ($fila['incidencias'] ? 'Sí' : 'No') . "<br>";
     } else if($fila["muestra_tipo"] === "FQ"){
         $resultados = "
         - pH: {$fila['pH']}<br>
         - Turbidez: {$fila['turbidez']} NTU<br>
-        - Color: {$fila['color']}<br>
+        - Color: {$fila['color']} UH<br>
         - Conductividad: {$fila['conductividad']} µS/cm<br>
-        - Dureza: {$fila['dureza']} mg/L<br>
-        - Cloro: {$fila['cloro']} mg/L<br>
+        - Dureza: {$fila['dureza']} mg/l<br>
+        - Cloro: {$fila['cloro']} mg/l<br>
         - Incidencias: " . ($fila['incidencias'] ? 'Sí' : 'No') . "<br>";
     } else{
         $resultados = "
         - Coliformes: {$fila['coliformes']} UFC/ml<br>
         - E. Coli: {$fila['e_coli']} UFC/ml<br>
-        - Cloro: {$fila['cloro']} mg/L<br>
+        - Cloro: {$fila['cloro']} mg/l<br>
         - Incidencias: " . ($fila['incidencias'] ? 'Sí' : 'No') . "<br>";
     }
 
