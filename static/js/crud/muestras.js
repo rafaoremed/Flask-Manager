@@ -96,6 +96,14 @@ function eliminarMuestra() {
 }
 
 function editarMuestra() {
+    const fila = $(this).closest("tr");
+    const estado = fila.find("td[data-att='estado']").text().trim();
+
+    if (estado === "Enviada") {
+        mostrarToast("Esta muestra ya ha sido enviada.", "info");
+        return;
+    }
+
     const id = $(this).closest("tr").attr("idMuestra");
 
     $.ajax({
@@ -322,7 +330,7 @@ function cargarTablaMuestras() {
                         <td data-att='estado'>${estadoTexto}</td>
                         <td data-att='incidencias'>${txtIncidencias}</td>
                         <td>
-                            <button class='modificar-muestra btn'>Editar muestra</button>
+                            <button class='modificar-muestra btn' ${editable ? "" : "hidden"}>Editar muestra</button>
                             <button class='eliminar-muestra btn btn-danger'>Eliminar muestra</button>
                             
                         </td>
