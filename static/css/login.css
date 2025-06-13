@@ -34,7 +34,7 @@ main{
     font-family: var(--fh);
     margin-bottom: var(--spacing3);
     text-align: center;
-    color: var(--color30);
+    color: var(--color50);
 }
 
 form input[type="text"],
