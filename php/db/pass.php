@@ -8,8 +8,8 @@ require_once '../utils/cambiar-pass.php';
 require_once 'db.php';
 
 // Cambiar en el hosting por el nombre del dominio
-$dominio = "localhost";
-$url = "http://$dominio/Flask-Manager/php/views/login/cambio-pass.php";
+$dominio = "localhost/Flask-Manager";
+$url = "http://$dominio/php/views/login/cambio-pass.php";
 
 $action = $_POST['action'] ?? '';
 
@@ -29,7 +29,7 @@ switch($action){
         $lab = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if (!$lab) {
-            http_response_code(404);
+            // http_response_code(404);
             echo "Usuario no encontrado";
             exit;
         }
