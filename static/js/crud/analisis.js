@@ -145,6 +145,7 @@ function cargarFormulario(){
 
             if(analisis.enviado){
                 $("#analisis-container input").prop("disabled", true);
+                $("#analisis-container input[type='submit']").hide();
             }else{
                 habilitarCheck();
                 // Agregar listener para verificar campos y habilitar checkbox
