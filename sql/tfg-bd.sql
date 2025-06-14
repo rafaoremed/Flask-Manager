@@ -36,7 +36,7 @@ CREATE TABLE clientes (
     id_laboratorio CHAR(36),
     id CHAR(36) PRIMARY KEY,
     nombre VARCHAR(50) NOT NULL,
-    email VARCHAR(50) NOT NULL UNIQUE,
+    email VARCHAR(50) NOT NULL,
     fecha_alta DATETIME NOT NULL DEFAULT NOW(),
     CONSTRAINT fk_clientes_lab_id FOREIGN KEY (id_laboratorio) REFERENCES laboratorios (id) ON UPDATE CASCADE ON DELETE CASCADE,
     UNIQUE (id_laboratorio, email)
