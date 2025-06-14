@@ -139,7 +139,11 @@ function guardarCliente() {
       limpiarFormulario();
       ocultarModal();
       cargarTabla();
-      mostrarToast(response, "success");
+      if(response == "Cliente creado." || response == "Cliente actualizado."){
+        mostrarToast(response, "success");
+      }else{
+        mostrarToast(response, "error");
+      }
     },
   });
 }

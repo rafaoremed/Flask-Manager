@@ -44,9 +44,19 @@ switch ($action) {
         $nombre = $_POST['nombre'];
         $email = $_POST['email'];
 
-        $stmt = $pdo->prepare("UPDATE clientes SET nombre = ?, email = ? WHERE id = ?");
-        $stmt->execute([$nombre, $email, $id]);
-        echo "Cliente actualizado.";
+        // Comprobar email
+        $stmt = $pdo->prepare("SELECT * FROM clientes where id_laboratorio = ? AND email = ? ORDER BY nombre");
+        $stmt->execute([$_SESSION["idLab"] , $email]);
+        $emailExiste = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        if(sizeof($emailExiste) > 0){
+            echo "Error al modificar el cliente, el email que intentas agregar ya se encuentra en la base de datos.";
+        }else{
+            $stmt = $pdo->prepare("UPDATE clientes SET nombre = ?, email = ? WHERE id = ?");
+            $stmt->execute([$nombre, $email, $id]);
+            echo "Cliente actualizado.";
+        }
+
         break;
 
     case 'delete':
