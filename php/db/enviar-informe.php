@@ -93,7 +93,8 @@ try{
         // Si falla PHPMailer, no marcamos la muestra como enviada
     echo json_encode([
         'success' => false,
-        'message' => "Error al enviar el correo: {$mail->ErrorInfo}"
+        // 'message' => "Error al enviar el correo: {$mail->ErrorInfo}"
+        'message' => "Error al enviar el correo: la dirección $cliente_email no es válida."
     ]);
     exit;
 }
