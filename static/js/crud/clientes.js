@@ -136,13 +136,13 @@ function guardarCliente() {
     data,
     dataType: "text",
     success: function (response) {
-      limpiarFormulario();
-      ocultarModal();
-      cargarTabla();
-      if(response == "Cliente creado." || response == "Cliente actualizado."){
-        mostrarToast(response, "success");
-      }else{
+      if (response.toLowerCase().includes("error")) {
         mostrarToast(response, "error");
+      } else {
+        limpiarFormulario();
+        ocultarModal();
+        cargarTabla();
+        mostrarToast(response, "success");
       }
     },
   });
