@@ -9,7 +9,7 @@ require_once 'db.php';
 
 // Cambiar en el hosting por el nombre del dominio
 $dominio = "localhost/Flask-Manager";
-$url = "http://$dominio/php/views/login/cambio-pass.php";
+$url = "https://$dominio/php/views/login/cambio-pass.php";
 
 $action = $_POST['action'] ?? '';
 
