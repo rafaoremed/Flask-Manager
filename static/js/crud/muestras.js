@@ -308,6 +308,7 @@ function cargarTablaMuestras() {
                     if(muestra.completada){
                         estadoTexto = "Completada";
                         claseEstado = "estado-completada"
+                        editable = false;
 
                         if (!enviada) {
                             enviable = true;
