@@ -22,10 +22,7 @@ function updateCampos(e) {
     const $form = $("#analisis-container");
     const $botonGuardar = $form.find("input[type='submit']");
     const originalTexto = $botonGuardar.val();
-
-    // Desactivar inputs y mostrar spinner
-    $form.find("input").prop("disabled", true);
-    $botonGuardar.val("Guardando...");
+    let updateOk = true;
 
     const data = {
         action: "update",
@@ -41,6 +38,42 @@ function updateCampos(e) {
         cloro: valorNumericoONull($("#cloro").val()),
         completada: $("#ch-completada").prop("checked") ? 1 : 0
     };
+
+    // Límites
+    const limites = {
+        pH: { max: 14 },
+        coliformes: { max: 100 },
+        e_coli: { max: 100 },
+        turbidez: { max: 1000 },
+        color: { max: 500 },
+        conductividad: { max: 10000 },
+        dureza: { max: 10000 },
+        cloro: { max: 10 }
+    };
+
+    // Validaciones
+    for (const campo in limites) {
+        const valor = data[campo];
+        const limite = limites[campo].max;
+        const margen = limite * 1.25;
+
+        if (valor !== null && valor > margen) {
+            mostrarToast(`Se ha excedido el máximo permitido en el campo "${campo}". Corrige el valor para guardar.`, "error");
+            updateOk = false;
+            break; 
+        }
+    }
+
+    // Si alguna validación falla, no continuar
+    if (!updateOk) {
+        $form.find("input").prop("disabled", false);
+        $botonGuardar.val(originalTexto);
+        return; 
+    }
+
+    // Desactivar inputs y mostrar spinner
+    $form.find("input").prop("disabled", true);
+    $botonGuardar.val("Guardando...");
 
     $.ajax({
         type: "POST",
@@ -69,6 +102,8 @@ function updateCampos(e) {
             window.location.href = "./vista-muestras.php";
         }
     });
+    
+
 }
 
 
@@ -164,11 +199,12 @@ function cargarFormulario(){
 
 }
 
-function generarCampo(nombre, valor, unidades) {
+function generarCampo(nombre, valor, unidades, max = null) {
     return `
         <div class="campo">
             <label for="${nombre}">${nombre.toUpperCase()} ${unidades}</label>
-            <input type="number" step="any" min="0" id="${nombre}" name="${nombre}" 
+            <input type="number" step="any" min="0" ${max !== null ? `max="${max}"` : ''}
+            id="${nombre}" name="${nombre}" 
             value="${valor !== null && valor !== undefined ? valor : ''}" placeholder="0">
         </div>
     `;
