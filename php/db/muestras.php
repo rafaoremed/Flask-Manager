@@ -35,14 +35,14 @@ switch ($action) {
 
             // Buscar el último número de muestra dentro del laboratorio y mes
             $stmt = $pdo->prepare("
-            SELECT m.numero
-            FROM muestras m
-            JOIN clientes c ON m.id_cliente = c.id
-            WHERE c.id_laboratorio = ?
-              AND m.numero LIKE ?
-            ORDER BY m.numero DESC
-            LIMIT 1
-        ");
+                SELECT m.numero
+                FROM muestras m
+                JOIN clientes c ON m.id_cliente = c.id
+                WHERE c.id_laboratorio = ?
+                AND m.numero LIKE ?
+                ORDER BY m.numero DESC
+                LIMIT 1
+            ");
             $stmt->execute([$_SESSION["idLab"], $prefijo . '%']);
             $lastNumber = 0;
 
@@ -59,9 +59,9 @@ switch ($action) {
 
             // Insertar muestra
             $stmt = $pdo->prepare("
-            INSERT INTO muestras (id, id_cliente, numero, fecha, direccion, tipo_analisis, enviado)
-            VALUES (?, ?, ?, ?, ?, ?, ?)
-        ");
+                INSERT INTO muestras (id, id_cliente, numero, fecha, direccion, tipo_analisis, enviado)
+                VALUES (?, ?, ?, ?, ?, ?, ?)
+            ");
             $stmt->execute([$id, $id_cliente, $numeroFormateado, $fecha, $direccion, $tipo_analisis, $enviado]);
 
             // Insertar análisis en blanco asociado
