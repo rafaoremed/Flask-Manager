@@ -295,7 +295,11 @@ function cargarTablaMuestras() {
                     let enviable = false;
                     let incidencias = false;
                     let enviada = muestra.enviado;
+                    let analizar = true;
                     
+                    if(new Date(muestra.fecha)> new Date()){
+                        analizar = false;
+                    }
 
                     if(muestra.incidencias == 1 || muestra.incidencias == "true"){
                         incidencias = true;
@@ -335,7 +339,7 @@ function cargarTablaMuestras() {
                             
                         </td>
                         <td>
-                            <button class="btn btn-primary ver-analisis">Ver análisis</button>
+                            <button class="btn btn-primary ver-analisis" ${analizar ? "" : "hidden"}>Ver análisis</button>
                             <button class='enviar-muestra btn btn-primary' ${enviable ? "" : "hidden"}>Enviar análisis</button>
                             
                         </td>

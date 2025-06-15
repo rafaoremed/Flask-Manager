@@ -41,7 +41,7 @@ function updateCampos(e) {
 
     // Límites
     const limites = {
-        pH: { max: 14 },
+        ph: { max: 14 },
         coliformes: { max: 100 },
         e_coli: { max: 100 },
         turbidez: { max: 1000 },
@@ -58,7 +58,7 @@ function updateCampos(e) {
         const margen = limite * 1.25;
 
         if (valor !== null && valor > margen) {
-            mostrarToast(`Se ha excedido el máximo permitido en el campo "${campo}". Corrige el valor para guardar.`, "error");
+            mostrarToast(`Se ha excedido el máximo permitido en el campo "${campo.toUpperCase()}". Corrige el valor para guardar.`, "error");
             updateOk = false;
             break; 
         }
@@ -178,7 +178,7 @@ function cargarFormulario(){
                 contarExcedidos(); 
             });
 
-            if(analisis.enviado){
+            if(analisis.enviado || new Date(analisis.fecha) > new Date()){
                 $("#analisis-container input").prop("disabled", true);
                 $("#analisis-container input[type='submit']").hide();
             }else{
