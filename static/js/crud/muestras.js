@@ -370,6 +370,12 @@ function actualizarFilaMuestra(muestra) {
 
     let estadoTexto = "Pendiente";
     let claseEstado = "estado-pendiente";
+    let analizar = true;
+
+    // Verificar si la fecha es futura
+    if (new Date(muestra.fecha) > new Date()) {
+        analizar = false;
+    }
 
     if (muestra.completada == 1 || muestra.completada === true || muestra.completada === "1" || muestra.completada === "true") {
         estadoTexto = "Completada";
@@ -391,6 +397,14 @@ function actualizarFilaMuestra(muestra) {
 
     fila.removeClass("estado-enviada estado-pendiente estado-completada estado-incidencias");
     fila.addClass(claseEstado);
+
+    // Mostrar u ocultar el botón "Ver análisis"
+    const btnVerAnalisis = fila.find(".ver-analisis");
+    if (analizar) {
+        btnVerAnalisis.removeAttr("hidden");
+    } else {
+        btnVerAnalisis.attr("hidden", true);
+    }
 }
 
 function buscar() {
