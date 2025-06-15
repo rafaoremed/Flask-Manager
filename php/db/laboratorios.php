@@ -180,6 +180,8 @@ function logearse($pdo, $email){
         throw new Exception("No hay ninguna cuenta registrada con ese email." );
     }
 
+    $nombre = $result["nombre"];
+
     if (!password_verify($pass, $result["pass"])) {
         throw new Exception("Credenciales incorrectas." );
     }
@@ -191,7 +193,7 @@ function logearse($pdo, $email){
     $stmt->execute([$codigo, $expiracion, $result["id"]]);
 
     // Enviar el código por correo
-    enviarCodigo2FA($email, $codigo);
+    enviarCodigo2FA($email, $nombre, $codigo);
 
     // No iniciar sesión todavía
     $_SESSION["pending_2fa"] = $result["id"];

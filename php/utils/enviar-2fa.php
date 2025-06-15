@@ -7,7 +7,7 @@ require_once '../libs/phpmailer/src/Exception.php';
 require_once '../libs/phpmailer/src/PHPMailer.php';
 require_once '../libs/phpmailer/src/SMTP.php';
 $config = parse_ini_file(__DIR__ . '/../../.env');
-function enviarCodigo2FA($destinatario, $codigo) {
+function enviarCodigo2FA($destinatario, $nombre, $codigo) {
     // $config = parse_ini_file(__DIR__ . '/../../.env');
     global $config;
     try {
@@ -29,9 +29,10 @@ function enviarCodigo2FA($destinatario, $codigo) {
         $mail->addAddress($destinatario);
         $mail->isHTML(true);
         $mail->Subject = 'Tu código de verificación (2FA)';
-        $mail->Body = "<h2>Tu código de verificación es:</h2> 
-                        <h3>$codigo</h3> 
-                        <p>Caduca en 10 minutos.</p>";
+        $mail->Body = "<h2 style='color: black;'>Hola $nombre, tu código de verificación es:</h2> 
+                        <h1 style='color: hsl(270, 90%, 50%);'>$codigo</h1> 
+                        <p style='color: black;'>El códgo caduca en 10 minutos.</p> 
+                        <p style='color: black;'>Si no has intentado iniciar sesión puedes ignorar este mensaje.</p>";
 
         $mail->send();
     } catch (Exception $e) {
