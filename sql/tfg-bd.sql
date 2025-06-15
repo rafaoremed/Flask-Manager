@@ -60,7 +60,7 @@ CREATE TABLE analisis (
     id_muestra CHAR(36) PRIMARY KEY,
     coliformes TINYINT UNSIGNED,
     e_coli TINYINT UNSIGNED,
-    pH DECIMAL(2, 1),
+    pH DECIMAL(3, 1),
     turbidez INT UNSIGNED,
     color TINYINT UNSIGNED,
     conductividad FLOAT UNSIGNED,
@@ -238,7 +238,7 @@ VALUES (
         0.25,
         '2025-06-02',
         TRUE,
-        FALSE
+        TRUE
     ),
     (
         'ea161443-22d3-4439-84fa-fbd66ebdc302', -- para la muestra 2506/00002
@@ -266,7 +266,7 @@ VALUES (
         0.10,
         '2025-06-02',
         TRUE,
-        FALSE
+        TRUE
     ),
     (
         '00223ad1-aa37-4b2f-8a93-183b5141e2d6', -- para la muestra 2506/00004
