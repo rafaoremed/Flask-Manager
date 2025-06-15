@@ -176,8 +176,11 @@ function logearse($pdo, $email){
     $stmt = $pdo->prepare("SELECT * FROM laboratorios where email = ?");
     $stmt->execute([$email]);
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    if(!$result){
+        throw new Exception("No hay ninguna cuenta registrada con ese email." );
+    }
 
-    if (!$result || !password_verify($pass, $result["pass"])) {
+    if (!password_verify($pass, $result["pass"])) {
         throw new Exception("Credenciales incorrectas." );
     }
 
